@@ -1,0 +1,150 @@
+<!-- Line-Reveal -->
+<link href="{% static 'Task/VT_functionality.css' %}" rel="stylesheet">
+<script src="{% static 'Task/VT_functionality.js' %}"></script>
+
+{{ block content }}
+
+<table> 
+    <tr>
+
+        <input type = "hidden" id="treatment" value="{{player.participant.treatment}}">
+
+        Remember: <p type = "text" id ="treatmenttext"></p>
+
+    </tr>
+        <td>
+            <button type="button" id="b1.1" > 
+                
+            </button>
+        </td>
+        <td>
+            <button type="button" id="b1.2"> 
+                Participant 1
+            </button>
+        </td>
+        <td>
+            <button type="button" id="b1.3"> 
+                Participant 2
+            </button>
+        </td>
+    <tr> 
+        <td>
+            <button type="button" id="b2.1"> 
+                Math
+            </button>
+        </td>
+        <td>
+            <button type="button"  class="r1 mousy button-outcome hidden" id="mathp1"> 
+                Math score participant 1
+            </button>
+        </td>
+        <td>
+            <button type="button"  class="r1 mousy button-outcome hidden" id="mathp2">  
+                Math score participant 2
+            </button>
+        </td>
+    </tr>
+    <tr> 
+        <td>
+            <button type="button" id="b3.1"> 
+                Verbal
+            </button>
+        </td>
+        <td>
+            <button type="button"  class="r1 mousy button-outcome hidden" id="verbalp1"> 
+                Verbal score participant 1
+            </button>
+        </td>
+        <td>
+            <button type="button"  class="r1 mousy button-outcome hidden" id="verbalp2">  
+                Verbal score participant 2
+            </button>
+        </td>
+    </tr>
+    <tr> 
+        <td>
+            <button type="button" id="b4.1"> 
+                Age
+            </button>
+        </td>
+        <td>
+            <button type="button"  class="r1 mousy button-outcome hidden" id="agep1"> 
+                Age participant 1
+            </button>
+        </td>
+        <td>
+            <button type="button"  class="r1 mousy button-outcome hidden" id="agep2">  
+                Age participant 2
+            </button>
+        </td>
+    </tr>
+    <tr> 
+        <td>
+            <button type="button" id="b5.1"> 
+                Gender
+            </button>
+        </td>
+        <td>
+            <button type="button"  class="r1 mousy button-outcome hidden" id="genderp1"> 
+                Gender participant 1
+            </button>
+        </td>
+        <td>
+            <button type="button"  class="r1 mousy button-outcome hidden" id="genderp2">  
+                Gender participant 2
+            </button>
+        </td>
+    </tr>
+    <tr> 
+        <td>
+            <button type="button" id="b6.1"> 
+                Occupation
+            </button>
+        </td>
+        <td>
+            <button type="button"  class="r1 mousy button-outcome hidden" id="occupationp1"> 
+                Occupation participant 1
+            </button>
+        </td>
+        <td>
+            <button type="button"  class="r1 mousy button-outcome hidden" id="occupationp2">  
+                Occupation participant 2
+            </button>
+        </td>
+    </tr>
+    <tr> 
+        <td>
+            <button type="button" id="b7.1"> 
+            </button>
+        </td>
+        <td>
+            <button type="button"  id="b7.2"> 
+                Choose participant 1
+            </button>
+        </td>
+        <td>
+            <button type="button"  id="b7.3">  
+                Choose participant 2
+            </button>
+        </td>
+    </tr>
+</table>
+
+<input type="hidden" name="chosen" id="chosen"/>
+
+    {{ next_button }}
+
+{{ endblock }}
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(debug=true) {
+        InitializeVT(document.getElementsByClassName('otree-body')[0]);
+        // Convert all buttons with the class 'clickable' into click VT buttons
+        ConvertButtons2VT('clickable',sActivation='click');
+        // Convert all buttons with the class 'mousy' into mouseover VT buttons
+        ConvertButtons2VT('mousy',sActivation='mouseover');
+        // Convert all buttons with the class 'row' into click VT buttons that activate outcome-buttons with the class 'r1'
+        ConvertButtons2VT('row',sActivation='click', 'r1');
+    });
+    
+</script>

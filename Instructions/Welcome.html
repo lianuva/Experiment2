@@ -1,0 +1,51 @@
+{{ block content }}
+<style>
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+</style>
+
+<img src="{{ static 'Questionnaire/UvA-logo.jpeg' }}" class="center"/>
+
+<p>
+<br>
+Welcome to this research study. Thank you for deciding to participate.
+<br><br>
+This study is part of a Master's thesis of the Neuroeconomics track of Business Economics at the University of Amsterdam (UvA). 
+It is conducted by Lian Jongejan, with the supervision of Alejandro Hirmas (Phd Candidate, UvA).
+If you have any questions concerning this study, please feel free to contact Lian Jongejan (lian.jongejan@student.uva.nl). 
+
+<br><br>
+<!--! This experiment exists of two tasks, which you will have to perform twice, followed by a questionnaire. -->
+Participating in this study will require approximately 15 – 20 minutes. 
+
+<br><br>
+By fully completing this experiment you could earn a substantial amount of money.  Read the instructions carefully. 
+To be in with a chance of receiving any potential payment, please provide us with your email address on the last page of the experiment. 
+After data gathering, a few participants will be randomly selected and paid according to their potential payoff.  
+
+
+<br><br>
+The outcomes of this study may be used for scientific publications, or be shared with other researches, 
+but your identity will under no circumstance become available to any third parties. Any identifying information collected in the study will be deleted after data collection is complete. 
+If you have any questions or concerns about privacy, please contact Lian Jongejan (lian.jongejan@student.uva.nl).
+<br><br>
+
+Important note: it is advised to participate in this study using a <b>laptop/computer</b>.
+And please do <b>not refresh</b> the page during the tasks. 
+
+{{formfield 'consent'}}
+
+</p>
+    {{ next_button }}
+{{ endblock }}
+
+

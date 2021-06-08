@@ -1,0 +1,64 @@
+{{ block content }}
+<style>
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+</style>
+
+
+<p>
+  On the next page you will see the scores of two participants on two tasks, a mathematical task and a verbal task.
+
+
+
+  <p type = "text" id ="treatmenttext"></p>
+
+  <input type="hidden" name="treatment" id="treatment"/>
+
+<br>
+
+
+<script>
+  function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+    //console.log(Math.floor(Math.random() * (max - min) + min));
+    //console.log("test");
+  }
+
+  let treatmentnumber = getRandomInt(1,4);
+  console.log(treatmentnumber);
+
+  if (treatmentnumber == 1) {
+    document.getElementById("treatmenttext").innerHTML = "The chance that the math task is chosen is 25%, the chance that the verbal task is chosen is 75%";
+    document.getElementById("treatment").value = 1;
+  } else if (treatmentnumber == 2) {
+    document.getElementById("treatmenttext").innerHTML = "The chance that the math task is chosen is 75%, the chance that the verbal task is chosen is 25%";
+    document.getElementById("treatment").value = 2;
+  } else if (treatmentnumber == 3) {
+    document.getElementById("treatmenttext").innerHTML = "The chance that the math task is chosen is 50%, the chance that the verbal task is chosen is 50%";
+    document.getElementById("treatment").value = 3;
+  } else {
+    document.getElementById("treatmenttext").innerHTML = "The chance that the math task is chosen is 50%, the chance that the verbal task is chosen is 50%";
+    document.getElementById("treatment").value = 3;
+  }
+
+
+
+</script>
+
+
+</p>
+    {{ next_button }}
+{{ endblock }}
+
+
