@@ -11,8 +11,12 @@ var diff            = 0;
 
 // Other variables
 let chosen          = 0;
-
+let data            = js_vars.data;
+let length          = js_vars.length;
+let category        = js_vars.category;
 document.getElementById("chosen").value = 0;
+
+// console.log (data)
 
 // Create hidden input (Pressed Buttons)
 let sButtonClick        = document.createElement("input");
@@ -53,7 +57,6 @@ clickparticipant2.addEventListener("click", function buttonfunction(){
 
 document.addEventListener("DOMContentLoaded", function(debug=true) {
   OtreeBody.appendChild(GameBody);
-
   GameBody.appendChild(sButtonClick);
   GameBody.appendChild(sTimeClick);
 
@@ -71,11 +74,68 @@ if (treatment == 1) {
   document.getElementById("treatmenttext").innerHTML = "The chance that the math task is chosen is 50%, the chance that the verbal task is chosen is 50%";
 }
 
+//get random rownumber for string
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+  //console.log(Math.floor(Math.random() * (max - min) + min));
+  //console.log("test");
+}
+
+let row = getRandomInt(1, length);
+
+console.log(row);
+
+// get values from csv string
+
+Genderp1    = data.split("[")[1].split(",")[row];
+Matrixp1    = data.split("[")[2].split(",")[row];
+Verbalp1    = data.split("[")[3].split(",")[row];
+Agep1       = data.split("[")[4].split(",")[row];
+Occupp1     = data.split("[")[5].split(",")[row];
+Genderp2    = data.split("[")[6].split(",")[row];
+Matrixp2    = data.split("[")[7].split(",")[row];
+Verbalp2    = data.split("[")[8].split(",")[row];
+Agep2       = data.split("[")[9].split(",")[row];
+Occupp2     = data.split("[")[10].split(",")[row];
+
+if (Genderp1 == 1){
+  Genderp1 = 'Male'
+} else if (Genderp1 == 2){
+  Genderp1 = 'Female'
+}
+
+if (Genderp2 == 1){
+  Genderp2 = 'Male'
+} else if (Genderp2 == 2) {
+  Genderp2 = 'Female'
+}
 
 
+console.log(category);
+console.log(Genderp1);
+console.log(Matrixp1);
+console.log(Verbalp1);
+console.log(Agep1);
+console.log(Occupp1);
+console.log(Genderp2);
+console.log(Matrixp2);
+console.log(Verbalp2);
+console.log(Agep2);
+console.log(Occupp2);
 
 
-
+document.getElementById("mathp1").textContent = Matrixp1;
+document.getElementById("verbalp1").textContent = Verbalp1;
+document.getElementById("agep1").textContent = Agep1;
+document.getElementById("genderp1").textContent = Genderp1;
+document.getElementById("occupationp1").textContent = Occupp1;
+document.getElementById("mathp2").textContent = Matrixp2;
+document.getElementById("verbalp2").textContent = Verbalp2;
+document.getElementById("agep2").textContent = Agep2;
+document.getElementById("genderp2").textContent = Genderp2;
+document.getElementById("occupationp2").textContent = Occupp2;
 
 
 
