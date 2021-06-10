@@ -1,0 +1,80 @@
+{{ block content }}
+<script src="{% static 'Instructions/Instructions.js' %}"></script>
+<style>
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+</style>
+
+
+<p>
+    Before continuing to the next page, please answer the questions correctly:
+    <br><br>
+    How do you reveal the information of a participant?
+    <div>
+        <input type="radio" id="Click" name="controlquestion" value="Click">
+        <label for="Click">Click a button</label>
+    </div>
+    <div>
+        <input type="radio" id="Hover" name="controlquestion" value="Hover">
+        <label for="Hover">Hover over a button</label>
+    </div>
+    <div>
+        <input type="radio" id="Look" name="controlquestion" value="Look">
+        <label for="Look">Look at the button</label>
+        </div>
+    <div>
+    <p id="text1"></p>
+
+
+    What is the maximum score of a particpant on each task?
+    <div>
+        <input type="radio" id="Click" name="controlquestion2" value="10">
+        <label for="Click">10</label>
+    </div>
+    <div>
+        <input type="radio" id="Hover" name="controlquestion2" value="12">
+        <label for="Hover">12</label>
+    </div>
+    <div>
+        <input type="radio" id="Look" name="controlquestion2" value="5">
+        <label for="Look">5</label>
+        </div>
+    <div>
+    <p id="text2"></p>
+
+    What is the chance that the math/verbal task are chosen?
+    <div>
+        <input type="radio" id="Click" name="controlquestion3" value="1">
+        <label for="Click">The chance that the math task is chosen is 25%, the chance that the verbal task is chosen is 75%</label>
+    </div>
+    <div>
+        <input type="radio" id="Hover" name="controlquestion3" value="2">
+        <label for="Hover">The chance that the math task is chosen is 75%, the chance that the verbal task is chosen is 25%</label>
+    </div>
+    <div>
+        <input type="radio" id="Look" name="controlquestion3" value="3">
+        <label for="Look">The chance that the math task is chosen is 50%, the chance that the verbal task is chosen is 50%</label>
+        </div>
+    <div>
+    <p id="text3"></p>
+    <input type = "hidden" id="treatment" value="{{player.participant.treatment}}">
+
+    <button type="button" id="submit"> Submit </button>   
+    <br><br>
+    <p id="text4"></p>
+
+</p>
+
+    {{ next_button }}
+{{ endblock }}
+
+

@@ -24,6 +24,8 @@ class Player(BasePlayer):
         label="By clicking the button below, you acknowledge that your participation in the study is voluntary, you are over 18 years of age, and that you are aware that you may choose to terminate your participation in the study at any time and for any reason.",
     )
     treatment = models.IntegerField()
+    #maximum score each task
+    #what treatment
 
 # PAGES
 class Welcome(Page):
@@ -39,4 +41,7 @@ class Explanation(Page):
         participant = player.participant
         participant.treatment = player.treatment
 
-page_sequence = [Welcome, Explanation]
+class controlquestion(Page):
+    pass
+
+page_sequence = [Welcome, Explanation, controlquestion]

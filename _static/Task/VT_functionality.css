@@ -43,8 +43,8 @@ table {
 }
 
 :root {
-  --sq-height: 20vh;
-  --sq-width: 20vh;
+  --sq-height: 12vh;
+  --sq-width: 12vh;
 } 
 
 button {
@@ -58,7 +58,7 @@ button {
   vertical-align: middle;
   height: var(--sq-height);
   width: var(--sq-width);
-  font-size: medium;
+  font-size: large;
 }
 
 button:focus {
