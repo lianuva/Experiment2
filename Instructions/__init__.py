@@ -23,25 +23,76 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect,
         label="By clicking the button below, you acknowledge that your participation in the study is voluntary, you are over 18 years of age, and that you are aware that you may choose to terminate your participation in the study at any time and for any reason.",
     )
-    treatment = models.IntegerField()
-    #maximum score each task
-    #what treatment
+    consentDutch = models.IntegerField(
+        choices=[
+        [1, 'Ik wil graag meedoen aan dit onderzoek'],
+        ],
+        widget=widgets.RadioSelect,
+        label="Door op onderstaande knop te drukken, bevestige je dat jou participatie in dit onderzoek vrijwillig is, dat je ouder bent dan 18 jaar en dat je je er van bewust bent dat je jouw participatie op ieder moment stop kan zetten zonder daar een reden voor hoeven te geven.",
+    )
+    treatment = models.IntegerField(blank = True)
+    language  = models.StringField(blank = True)
 
 # PAGES
+class Language(Page):
+    form_model = 'player'
+    form_fields = ['language']
+
+    @staticmethod
+    def before_next_page(player, timeout_happened):  
+        participant = player.participant
+        participant.language = player.language
+
 class Welcome(Page):
     form_model = 'player'
     form_fields = ['consent']
+
+    @staticmethod
+    def is_displayed(player: Player):
+        return player.participant.language == 'English'
+
+class WelcomeDutch(Page):
+    form_model = 'player'
+    form_fields = ['consentDutch']
+
+    @staticmethod
+    def is_displayed(player: Player):
+        return player.participant.language == 'Dutch'
 
 class Explanation(Page):
     form_model = 'player'
     form_fields = ['treatment']
 
     @staticmethod
-    def before_next_page(player, timeout_happened):  #before the next round, this is all that i need to do, save this variables in the participant variables
+    def before_next_page(player, timeout_happened):  
         participant = player.participant
         participant.treatment = player.treatment
 
-class controlquestion(Page):
-    pass
+    @staticmethod
+    def is_displayed(player: Player):
+        return player.participant.language == 'English'
 
-page_sequence = [Welcome, Explanation, controlquestion]
+class ExplanationDutch(Page):
+    form_model = 'player'
+    form_fields = ['treatment']
+
+    @staticmethod
+    def before_next_page(player, timeout_happened):  
+        participant = player.participant
+        participant.treatment = player.treatment
+    
+    @staticmethod
+    def is_displayed(player: Player):
+        return player.participant.language == 'Dutch'
+
+class controlquestion(Page):
+    @staticmethod
+    def is_displayed(player: Player):
+        return player.participant.language == 'English'
+
+class controlquestionDutch(Page):
+    @staticmethod
+    def is_displayed(player: Player):
+        return player.participant.language == 'Dutch'
+
+page_sequence = [Language, Welcome, WelcomeDutch, Explanation, ExplanationDutch, controlquestion, controlquestionDutch]

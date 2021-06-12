@@ -2,8 +2,8 @@
 const bRequireFS      = js_vars.bRequireFS;
 const bCheckFocus     = js_vars.bCheckFocus;
 
+
 if (bRequireFS) {
-  
   // Create input iFullscreenChange
   var iFullscreenChange       = document.createElement("input");
   iFullscreenChange.type      = 'hidden';
@@ -28,6 +28,7 @@ if (bCheckFocus) {
   var TBlur       = new Date().getTime();
   var TFocus      = new Date().getTime();
 }
+
 
 // Initialize Elements
 document.addEventListener("DOMContentLoaded", function() {
@@ -119,10 +120,10 @@ function CreateFullScreenPopUp() {
   PopUpText2.className             = 'fs-popup-text';
   switch (getOS()) {
     case 'Mac OS' : 
-      PopUpText2.innerHTML             = 'Press ⌘+⇧+F'; 
+      PopUpText2.innerHTML            = 'Press ⌘+⇧+F'; 
       break;
     case 'Windows' :
-      PopUpText2.innerHTML             = 'Press F11'; 
+      PopUpText2.innerHTML             = 'Press F11';
       break;
     case 'Linux' :
         PopUpText2.innerHTML             = 'Press F11'; 
@@ -163,4 +164,5 @@ function getOS() {
   }
 
   return os;
+
 }

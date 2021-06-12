@@ -1,0 +1,50 @@
+{{ block content }}
+<style>
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+</style>
+
+<img src="{{ static 'Questionnaire/UvA-logo.jpeg' }}" class="center"/>
+
+<p>
+<br>
+Welkom bij dit experiment. Bedankt dat je er voor hebt gekozen om mee te doen.
+<br><br>
+Dit experiment is onderdeel van een Master scriptie van de Neuroeconmics track van Business Economics aan de Universiteit van Amsterdam (UvA).
+Het wordt uitgevoerd door Lian Jongejan, met de supervisie van Alejandro Hirmas (Phd kandidaat, UvA).
+Als je vragen over dit onderzoek hebt, voel je vrij om contact op te nemen met Lian Jongejan (lian.jongejan@student.uva.nl).
+
+<br><br>
+Meedoen aan dit onderzoek kost je ongeveer 15 minuten.
+
+<br><br>
+Door het experiment volledig af te ronden, kan je een geldbedrag winnen. Lees daarvoor de instructies aandachtig.
+Als je kans wilt hebben op betaling van je bij elkaar gespeelde bedrag, vul dan je e-mailadres in op de laatste pagina van dit experiment.
+Na data verzameling zullen een aantal participanten willekeurig geselecteerd worden en het door hen bij elkaar gespeelde bedrag uitbetaald krijgen.
+
+<br><br>
+De uitkomsten van dit experiment kunnen gebruikt worden in wetenschappelijke publicaties, of gedeeld worden met andere onderzoekers,
+maar jouw identiteit zal onder geen enkele omstandigheid toegankelijk worden voor derden. Alle indentificerende informatie verzameld in deze studie zal verwijderd worden nadat de data verzameling compleet is.
+Als je vragen hebt over je privacy, neem dan contact op met Lian Jongejan (ian.jongejan@student.uva.nl).
+
+<br><br>
+
+Belangrijk: deze study kan alleen gedaan worden op een <b>laptop/computer</b>.
+En gelieve <b>niet te refreshen</b> tijdens het experiment. 
+
+{{formfield 'consentDutch'}}
+
+</p>
+    {{ next_button }}
+{{ endblock }}
+
+

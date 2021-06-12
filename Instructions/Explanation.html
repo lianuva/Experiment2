@@ -1,4 +1,8 @@
 {{ block content }}
+
+{{ block title }}
+Instructions
+{{ endblock }}
 <style>
 .center {
   display: block;
@@ -19,18 +23,47 @@ img {
 p {
   font-weight: bold;
 }
+
+mark.red {
+    color:#ff0000;
+    background: none;
+}
+mark.green {
+    color:blue ;
+    background: none;
+}
 </style>
 
 
 <div>
   On the next page you will see the scores of two participants on two tasks, a mathematical task and a verbal task.
-  These tasks are played twice by several participants. You will also be faced with some demographics of the participants. 
-  Hover your mouse over the buttons to reveal the information you want to know. The tasks were as follows:
+  These tasks are played twice by several participants. But you will only see the scores of the first round. 
+  After the experiment, one of the two tasks will be randomly chosen. <p type = "text" id ="treatmenttext"></p>
+
+  If the participant you chose performed better on the second round than the other participant on the randomly chosen task, you'll receive a potential payment of €0.50.
+  You will also be faced with some demographics of the participants. 
+  Hover your mouse over the buttons to reveal the information you want to know. 
+  <br><br>
+  
+  <u>For example:</u> participant 1 has a score of 8 (out of 10) in round 1 on the math task and 7 (out of 10) in round 1 on the verbal task. 
+  Participant 2 has a score of 8 (out of 10) in round 1 on the math task and 8 (out of 10) in round 1 on the verbal task.
+  What you will then see is: <br>
+  <img src="{{ static 'Instructions/example.png' }}" class="left" width="30%" height="auto" />
+
+  <br><br>
+  What you will not know are the scores of round 2. Participant 1 scored <b>7</b> on the math task and <b>8</b> on the verbal task in round 2.
+  Participant 2 scored <b>8</b> on the math task and <b>7</b> on the verbal task. <br>
+  
+  With only the information of round 1, who do you expect to perform better on round 2? If you choose participant 1 and the math task is selected, you will not receive payment (because in round 2, participant 2 performs better). 
+  But if the verbal task is selected, you'll receive a payment of €0.50 (because participant 1 outperformed participant 2 in round 2).
+  <br><br>
+  In total, there are 40 trials, so the potential payment is €20. To be in with a chance of receiving any potential payment, please provide us with your email address on the last page of the experiment. 
+  The tasks participants played were as follows:
   <br><br>
 
   <u>Mathematical task</u><br>
   Participants were faced with a matrix of 12 numbers. They had to find which numbers summed up to 10. 
-  When they were correct, they saw the next matrix. This looked like this:
+  When they were correct, they saw the next matrix. See an example below:
   <br>
   <img src="{{ static 'Instructions/math_task.png' }}" class="left" width="30%" height="auto"/>
 
@@ -40,28 +73,14 @@ p {
 
   <br><br>
   <u>Verbal task</u><br>
-  For this task, participants were faced with a long word (for example: EXPERIMENT). 
-  Then, participants had to find new words within this word, with a minimum of 4 letters (for example: ITEM).
-  This looked like this:
+  For this task, participants were faced with a long word (for example: ASCRIBING). 
+  Then, participants had to find new words using the letters of the long word, with a minimum of 4 letters (for example: ITEM).
+  See an example below:
   <br>
   <img src="{{ static 'Instructions/verbal_task.png' }}" class="left" width="60%" height= "auto"/>
 
   <br><br>
   Score: the maximum score participants get on this task is 10, the minimum is 0. 
-
-  <br><br>
-  <u>What is asked form you?</u><br>
-  In every round you'll see two participants who both played these tasks twice.
-  But, you can only see the first time the participants played the tasks. 
-  <b>Your job is to indicate who of the two participants played better on the second time playing.</b>
-  <br><br>
-  But, take into account the possibility of the task being chosen:
-  <p type = "text" id ="treatmenttext"></p>
-  
-  Every time you pick the correct participant, you'll receive a payment of €0.50.
-
-  So, if the math task was picked in randomisation and the participant you chose scored better on the second time performing the tasks, 
-  you'll receive your payment.
 
   <input type="hidden" name="treatment" id="treatment"/>
   <br>
@@ -73,8 +92,6 @@ p {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
-    //console.log(Math.floor(Math.random() * (max - min) + min));
-    //console.log("test");
   }
 
   let treatmentnumber = getRandomInt(1,4);

@@ -1,11 +1,13 @@
 <!-- Line-Reveal -->
 <link href="{% static 'Task/VT_functionality.css' %}" rel="stylesheet">
 <script src="{% static 'Task/VT_functionality.js' %}"></script>
+
 <!-- Full-Screen & Focus -->
-<script src="{% static 'global/FriendlyChecks.js' %}"></script>
-<link href="{% static 'global/FriendlyChecks.css' %}" rel="stylesheet">
+<script src="{% static 'Task/FriendlyChecks.js' %}"></script>
+<link href="{% static 'Task/FriendlyChecks.css' %}" rel="stylesheet">
 
 {{ block content }}
+
 
 <tr>
 
@@ -118,9 +120,9 @@
     </tr>
 </table>
 
-
-
 <input type="hidden" name="chosen" id="chosen"/>
+<input type="hidden" name="category" id="category"/>
+<input type="hidden" name="rownr" id="rownr"/>
 
     {{ next_button }}
 

@@ -14,7 +14,11 @@ let chosen          = 0;
 let data            = js_vars.data;
 let length          = js_vars.length;
 let category        = js_vars.category;
+// let rownr           = js_vars.rownr;
 document.getElementById("chosen").value = 0;
+// document.getElementById("rownr").value = rownr;
+document.getElementById("category").value = category;
+
 
 // console.log (data)
 
@@ -46,11 +50,13 @@ let clickparticipant1 = document.getElementById("b7.2");
 let clickparticipant2 = document.getElementById("b7.3");
 
 clickparticipant1.addEventListener("click", function buttonfunction(){
+  clickparticipant1.style.background='rgb(200, 200, 200)';
   document.getElementById("chosen").value = 1;
   EndButton.click(); 
 });
 
 clickparticipant2.addEventListener("click", function buttonfunction(){
+  clickparticipant2.style.background='rgb(200, 200, 200)';
   document.getElementById("chosen").value = 2;
   EndButton.click(); 
 });
@@ -83,22 +89,22 @@ function getRandomInt(min, max) {
   //console.log("test");
 }
 
-let row = getRandomInt(1, length);
-
-console.log(row);
+let rownr = getRandomInt(1, length);
+document.getElementById("rownr").value = rownr +2;
+console.log(rownr +2);
 
 // get values from csv string
 
-Genderp1    = data.split("[")[1].split(",")[row];
-Matrixp1    = data.split("[")[2].split(",")[row];
-Verbalp1    = data.split("[")[3].split(",")[row];
-Agep1       = data.split("[")[4].split(",")[row];
-Occupp1     = data.split("[")[5].split(",")[row];
-Genderp2    = data.split("[")[6].split(",")[row];
-Matrixp2    = data.split("[")[7].split(",")[row];
-Verbalp2    = data.split("[")[8].split(",")[row];
-Agep2       = data.split("[")[9].split(",")[row];
-Occupp2     = data.split("[")[10].split(",")[row];
+Genderp1    = data.split("[")[1].split(",")[rownr];
+Matrixp1    = data.split("[")[2].split(",")[rownr];
+Verbalp1    = data.split("[")[3].split(",")[rownr];
+Agep1       = data.split("[")[4].split(",")[rownr];
+Occupp1     = data.split("[")[5].split(",")[rownr];
+Genderp2    = data.split("[")[6].split(",")[rownr];
+Matrixp2    = data.split("[")[7].split(",")[rownr];
+Verbalp2    = data.split("[")[8].split(",")[rownr];
+Agep2       = data.split("[")[9].split(",")[rownr];
+Occupp2     = data.split("[")[10].split(",")[rownr];
 
 if (Genderp1 == 1){
   Genderp1 = 'Male'
@@ -111,6 +117,55 @@ if (Genderp2 == 1){
 } else if (Genderp2 == 2) {
   Genderp2 = 'Female'
 }
+
+if (Occupp1 == 1 ){
+  Occupp1 = 'Working 36-40hrs'
+} else if (Occupp1 == 2){
+  Occupp1 = 'Working <36hrs'
+} else if (Occupp1 == 3){
+  Occupp1 = 'Parttime job'
+} else if (Occupp1 == 4){
+  Occupp1 = 'Looking for job'
+} else if (Occupp1 == 5){
+  Occupp1 = 'Not looking for job'
+} else if (Occupp1 == 6){
+  Occupp1 = 'Retired'
+} else if (Occupp1 == 7){
+  Occupp1 = 'Student'
+} else if (Occupp1 == 8){
+  Occupp1 = 'Student with parttime job'
+} else if (Occupp1 == 9){
+  Occupp1 = 'Not able to work'
+} else if (Occupp1 == 10){
+  Occupp1 = 'Unknown'
+}
+if (Occupp2 == 1){
+  Occupp2 = 'Working 36-40hrs'
+} else if (Occupp2 == 2){
+  Occupp2 = 'Working <36hrs'
+} else if (Occupp2 == 3){
+  Occupp2 = 'Parttime job'
+} else if (Occupp2 == 4){
+  Occupp2 = 'Looking for job'
+} else if (Occupp2 == 5){
+  Occupp2 = 'Not looking for job'
+} else if (Occupp2 == 6){
+  Occupp2 = 'Retired'
+} else if (Occupp2 == 7){
+  Occupp2 = 'Student'
+} else if (Occupp2 == 8){
+  Occupp2 = 'Student with parttime job'
+} else if (Occupp2 == 9){
+  Occupp2 = 'Not able to work'
+} else if (Occupp2 == 10){
+  Occupp2 = 'Unknown'
+}
+
+Matrixp1 = ((Matrixp1 / 12) * 10).toFixed(1);
+Matrixp2 = ((Matrixp2 / 12) * 10).toFixed(1);
+Verbalp1 = ((Verbalp1 / 75) * 10).toFixed(1);
+Verbalp2 = ((Verbalp2 / 75) * 10).toFixed(1);
+
 
 
 console.log(category);

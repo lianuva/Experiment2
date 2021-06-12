@@ -1,10 +1,6 @@
 from otree.api import *
 import pandas as pd
 import json
-import csv
-import random
-from random import randint
-from random import seed
 import numpy as np
 
 doc = """
@@ -17,10 +13,10 @@ class Constants(BaseConstants):
     players_per_group = None
     num_rounds = 8 #!eventually 40
     counter = num_rounds
-    FM = pd.read_csv("_static/Task/FF.csv") #10 trials
-    MF = pd.read_csv("_static/Task/FF.csv") #10 trials
+    FM = pd.read_csv("_static/Task/FM.csv") #10 trials
+    MF = pd.read_csv("_static/Task/MF.csv") #10 trials
     FF = pd.read_csv("_static/Task/FF.csv") #5 trials
-    MM = pd.read_csv("_static/Task/FF.csv") #5 trials
+    MM = pd.read_csv("_static/Task/MM.csv") #5 trials
     M  = pd.read_csv("_static/Task/2males.csv") #5 trials
     F  = pd.read_csv("_static/Task/2females.csv") #5 trials
     bRequireFS          = True  
@@ -40,8 +36,8 @@ class Player(BasePlayer):
     sButtonClick        = models.StringField(blank=True)
     sTimeClick          = models.StringField(blank=True)
     chosen              = models.IntegerField(blank=True)
-    category              = models.IntegerField(blank=True)
-
+    category            = models.StringField(blank=True)
+    rownr               = models.IntegerField(blank=True)
     iFocusLost          = models.IntegerField(blank=True) #tbv FriendlyChecks
     dFocusLostT         = models.FloatField(blank=True) #tbv FriendlyChecks
     iFullscreenChange   = models.IntegerField(blank=True) #tbv FriendlyChecks
@@ -54,6 +50,7 @@ class Task(Page):
         'sTimeClick',
         'chosen',
         'category',
+        'rownr',
         'iFocusLost',
         'dFocusLostT',
         'iFullscreenChange',
@@ -76,7 +73,7 @@ class Task(Page):
                 }
                 data = json.dumps(x)
                 length = len(Constants.FM["female_gender"])
-                category = 'FM'
+                player.category = 'FM'
             elif nrcategory[player.round_number] == 3 or nrcategory[player.round_number] == 4:
                 x = {
                     "Genderp1"   : Constants.MF["female_gender"].tolist(),
@@ -92,7 +89,7 @@ class Task(Page):
                 }
                 data = json.dumps(x)
                 length = len(Constants.FM["female_gender"])
-                category = 'MF'
+                player.category = 'MF'
             elif nrcategory[player.round_number] == 5:   
                 x = {
                     "Genderp1"   : Constants.FF["female_gender"].tolist(),
@@ -108,7 +105,7 @@ class Task(Page):
                 }
                 data = json.dumps(x)
                 length = len(Constants.FM["female_gender"])
-                category = 'FF'
+                player.category = 'FF'
             elif nrcategory[player.round_number] == 6:   
                 x = {
                     "Genderp1"   : Constants.MM["female_gender"].tolist(),
@@ -124,7 +121,7 @@ class Task(Page):
                 }
                 data = json.dumps(x)
                 length = len(Constants.FM["female_gender"])
-                category = 'MM'
+                player.category = 'MM'
             elif nrcategory[player.round_number] == 7:   
                 x = {
                     "Genderp1"   : Constants.M["female_gender"].tolist(),
@@ -140,7 +137,7 @@ class Task(Page):
                 }
                 data = json.dumps(x)
                 length = len(Constants.FM["female_gender"])
-                category = 'M'
+                player.category = 'M'
             elif nrcategory[player.round_number] == 8:   
                 x = {
                     "Genderp1"   : Constants.F["female_gender"].tolist(),
@@ -156,14 +153,21 @@ class Task(Page):
                 }
                 data = json.dumps(x)
                 length = len(Constants.FM["female_gender"])
-                category = 'F'
+                player.category = 'F'
 
             return {
                 'data'          : data,
                 'length'        : length,
-                'category'      : category,
-                'bRequireFS'            : Constants.bRequireFS,
-                'bCheckFocus'           : Constants.bCheckFocus,
+                'category'      : player.category,
+                # 'rownr'         : 0,
+                'bRequireFS'    : Constants.bRequireFS,
+                'bCheckFocus'   : Constants.bCheckFocus,
             }
+            
+    @staticmethod
+    def before_next_page(player, timeout_happened):  
+        participant = player.participant
+        participant.category = player.category
+        # participant.rownr = player.rownr
 
 page_sequence = [Task]

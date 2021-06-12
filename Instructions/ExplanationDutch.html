@@ -1,0 +1,127 @@
+{{ block content }}
+
+{{ block title }}
+Instructies
+{{ endblock }}
+<style>
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+div {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+img {
+  border: 1px solid black;  
+}
+
+p {
+  font-weight: bold;
+}
+
+mark.red {
+    color:#ff0000;
+    background: none;
+}
+mark.green {
+    color:blue ;
+    background: none;
+}
+</style>
+
+
+<div>
+  Op de volgende pagina zie je de scores van 2 participanten op 2 testen, een wiskundige (vanaf hier 'math task' genoemd) en een verbale test (vanaf hier 'verbal task' genoemd). 
+  Deze testen zijn twee keer gespeeld door meerdere participanten. Maar je kan alleen de scores van de eerste ronde zien.
+  Na het experiment, zal één van de twee testen willekeurig worden gekozen. <p type = "text" id ="treatmenttext"></p>
+
+  Als de participant die jij hebt gekozen beter heeft gespeeld op de willekeurig gekozen test in de tweede ronde, ontvang je €0.50 voor jouw mogelijk te winnen bedrag.
+  Je ziet ook wat eigenschappen van de participanten (age = leeftijd, gender = geslacht, occupation = beroep).
+  Beweeg je muis over een vlak om de informatie die je wilt weten te onthullen. 
+
+  <br><br>
+  
+  <u>Bijvoorbeeld:</u> participant 1 heeft een score van 8 (uit 10) in ronde 1 voor de math task en 7 (uit 10) in ronde 1 voor de verbal task. 
+  Participant 2 heeft een score van 8 (uit 10) in ronde 1 voor de math task en 8 (uit 10) in ronde 1 voor de verbal task.
+  Wat je dan zal zien is: <br>
+  <img src="{{ static 'Instructions/example.png' }}" class="left" width="30%" height="auto" />
+
+  <br><br>
+  Wat je niet kan zien en dus niet weet, zijn de scores in ronde 2. Participant 1 heeft <b>7</b> gescoord voor de math task en <b>8</b> voor de verbal task in ronde 2.
+  Participant 2 heeft <b>8</b> gescoord voor de math task en <b>7</b> voor de verbal task. <br>
+  
+  Met alleen de informatie van ronde 1, wie verwacht je dat er beter heeft gescoord in ronde 2? Als je participant 1 kiest en de 
+  math task is (willekeurig) gekozen, zal je in dit geval geen €0.50 verdienen (want in ronde 2 is participant 2 beter).
+  Maar als de verbal task wordt gekozen, wordt er wel €0.50 voor je mogelijk te winnen bedrag (want participant 1 is beter dan participant 2 in ronde 2).
+
+  <br><br>
+  In totaal moet je 40 keer kiezen tussen 2 participanten, dus het potentiele bedrag wat je kan verdienen is €20.
+  Als je een kans wilt hebben op uitbetaling van dit bedrag, vul dan je email in op de laatste pagina van dit experiment.
+  <br>
+  Hier volgt meer informatie over de twee testen die de participanten hebben gedaan:
+  <br><br>
+
+  <u>Math task</u><br>
+  Participanten kregen een matrix met 12 nummers te zien. In deze matrix moesten ze twee nummers vinden die samen 10 waren.
+  Als ze het correct ingevuld hadden, zagen ze de volgende matrix. Bijvoorbeeld:
+  <br>
+  <img src="{{ static 'Instructions/math_task.png' }}" class="left" width="30%" height="auto"/>
+
+  <br><br>
+  Score: de maximum score op deze test is 10, het minimum 0.
+
+  <br><br>
+  <u>Verbal task</u><br>
+  In deze test zagen participanten een lang woord (bijvoorbeeld: ASCRIBING).
+  De participanten moesten nieuwe woorden in dit woord vinden door de letter van het lange woord te gebruikten, met een minimum van 4 letters (bijvoorbeeld: BRING).
+  Zie hieronder:
+  <br>
+  <img src="{{ static 'Instructions/verbal_task.png' }}" class="left" width="60%" height= "auto"/>
+
+  <br><br>
+  Score: de maximum score op deze test is 10, het minimum 0.
+
+  <input type="hidden" name="treatment" id="treatment"/>
+  <br>
+</div>
+
+
+<script>
+  function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+  }
+
+  let treatmentnumber = getRandomInt(1,4);
+  console.log(treatmentnumber);
+
+  if (treatmentnumber == 1) {
+    document.getElementById("treatmenttext").innerHTML = "De kans dat de math task wordt gekozen is 25%, de kans dat de verbal task wordt gekozen is 75%";
+    document.getElementById("treatment").value = 1;
+  } else if (treatmentnumber == 2) {
+    document.getElementById("treatmenttext").innerHTML = "De kans dat de math task wordt gekozen is 75%, de kans dat de verbal task wordt gekozen is 25%";
+    document.getElementById("treatment").value = 2;
+  } else if (treatmentnumber == 3) {
+    document.getElementById("treatmenttext").innerHTML = "De kans dat de math task wordt gekozen is 50%, de kans dat de verbal task wordt gekozen is 50%";
+    document.getElementById("treatment").value = 3;
+  } else {
+    document.getElementById("treatmenttext").innerHTML = "De kans dat de math task wordt gekozen is 50%, de kans dat de verbal task wordt gekozen is 50%";
+    document.getElementById("treatment").value = 3;
+  }
+
+
+
+</script>
+
+
+</p>
+    {{ next_button }}
+{{ endblock }}
+
+
