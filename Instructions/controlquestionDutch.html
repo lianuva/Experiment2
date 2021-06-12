@@ -1,0 +1,80 @@
+{{ block content }}
+<script src="{% static 'Instructions/InstructionsDutch.js' %}"></script>
+<style>
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+</style>
+
+
+<p>
+    Beantwoord de volgende vragen correct voordat je door gaat naar de volgende pagina.
+    <br><br>
+    Hoe onthul je informatie over een participant?
+    <div>
+        <input type="radio" id="Click" name="controlquestion" value="Click">
+        <label for="Click">Klik op een vlak</label>
+    </div>
+    <div>
+        <input type="radio" id="Hover" name="controlquestion" value="Hover">
+        <label for="Hover">Beweeg je muis over een vlak</label>
+    </div>
+    <div>
+        <input type="radio" id="Look" name="controlquestion" value="Look">
+        <label for="Look">Kijk naar een vlak</label>
+        </div>
+    <div>
+    <p id="text1"></p>
+
+
+    Wat is de maximum score van een particpant per test?
+    <div>
+        <input type="radio" id="Click" name="controlquestion2" value="10">
+        <label for="Click">10</label>
+    </div>
+    <div>
+        <input type="radio" id="Hover" name="controlquestion2" value="12">
+        <label for="Hover">12</label>
+    </div>
+    <div>
+        <input type="radio" id="Look" name="controlquestion2" value="5">
+        <label for="Look">5</label>
+        </div>
+    <div>
+    <p id="text2"></p>
+
+    Wat is de kans dat de math/verbal task willekeurig wordt gekozen?
+    <div>
+        <input type="radio" id="Click" name="controlquestion3" value="1">
+        <label for="Click">De kans dat de math task wordt gekozen is 25%, de kans dat de verbal task wordt gekozen is 75%</label>
+    </div>
+    <div>
+        <input type="radio" id="Hover" name="controlquestion3" value="2">
+        <label for="Hover">De kans dat de math task wordt gekozen is 75%, de kans dat de verbal task wordt gekozen is 25%</label>
+    </div>
+    <div>
+        <input type="radio" id="Look" name="controlquestion3" value="3">
+        <label for="Look">De kans dat de math task wordt gekozen is 50%, de kans dat de verbal task wordt gekozen is 50%</label>
+        </div>
+    <div>
+    <p id="text3"></p>
+    <input type = "hidden" id="treatment" value="{{player.participant.treatment}}">
+
+    <button type="button" id="submit"> Bevestig </button>   
+    <br><br>
+    <p id="text4"></p>
+
+</p>
+
+    {{ next_button }}
+{{ endblock }}
+
+

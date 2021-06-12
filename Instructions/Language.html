@@ -1,0 +1,48 @@
+{{ block content }}
+<img src="{{ static 'Questionnaire/UvA-logo.jpeg' }}" class="center"/>
+
+<p>
+<br>
+Welcome to this research study. Thank you for deciding to participate.
+
+Would you like to read the instructions in English or Dutch?
+
+    <div>
+        <input type="radio" id="English" name="language1" value="English">
+        <label for="English">English</label>
+    </div>
+    <div>
+        <input type="radio" id="Dutch" name="language1" value="Dutch">
+        <label for="Dutch">Dutch</label>
+    </div>
+    <br>
+
+    <input type="hidden" name="language" id="language"/>
+
+<div id="div1"></div>
+
+    {{ next_button }}
+{{ endblock }}
+
+<script>
+    
+    button = document.getElementsByClassName('otree-btn-next btn btn-primary')[0];
+
+    button.addEventListener("click", function checkfunction() {
+        var getSelectedValue = document.querySelector(   
+                'input[name="language1"]:checked');   
+                
+            if(getSelectedValue != null) {   
+                if (getSelectedValue.value == "Dutch") {
+                    document.getElementById("language").value = 'Dutch';
+                } else if (getSelectedValue.value == "English") {
+                    document.getElementById("language").value = 'English';
+                }  
+            }   
+            else {   
+                document.getElementById("language").value = 'English';
+            }   
+    });
+    console.log(document.getElementById("language").value);
+
+</script>

@@ -1,0 +1,67 @@
+.hidden {
+  color:  rgb(200, 200, 200);
+  background-color: rgb(200, 200, 200);
+}
+  
+.non-hidden {
+  color: #000;
+  background-color: rgb(200, 200, 200);
+}
+  
+.hidden .button-img{
+  display: none;
+}
+  
+.non-hidden .button-img{
+  display: inline-flex;
+}
+
+.button-outcome {
+  font-size: 1em;
+}
+
+table td {
+  border: none !important;
+  white-space: nowrap;
+}
+
+table tr {
+  white-space: nowrap;
+  border: none !important; 
+}
+
+
+table {
+  border-collapse: collapse !important;
+  border-spacing: 0;
+  box-sizing: border-box;
+  display: grid; 
+  text-align: center;
+  position: relative;
+  left: 20%;
+  top: 50%;
+}
+
+:root {
+  --sq-height: 12vh;
+  --sq-width: 12vh;
+} 
+
+button {
+  border: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #000;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  height: var(--sq-height);
+  width: var(--sq-width);
+  font-size: large;
+  white-space: normal;
+}
+
+button:focus {
+    outline: none !important;
+}
+
