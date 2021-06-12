@@ -68,27 +68,33 @@ document.addEventListener("DOMContentLoaded", function(debug=true) {
 
 });
 
+//repeat treatment for participants
 treatment = document.getElementById("treatment").value;
-
-if (treatment == 1) {
-  document.getElementById("treatmenttext").innerHTML = "The chance that the math task is chosen is 25%, the chance that the verbal task is chosen is 75%";
-} else if (treatment == 2) {
-  document.getElementById("treatmenttext").innerHTML = "The chance that the math task is chosen is 75%, the chance that the verbal task is chosen is 25%";
-} else if (treatment == 3) {
-  document.getElementById("treatmenttext").innerHTML = "The chance that the math task is chosen is 50%, the chance that the verbal task is chosen is 50%";
+language = document.getElementById("language").value;
+if (treatment == 1 & language == "English") {
+  document.getElementById("treatmenttext").innerHTML = "Remember: The chance that the math task is chosen is 25%, the chance that the verbal task is chosen is 75%";
+} else if (treatment == 2 & language == "English") {
+  document.getElementById("treatmenttext").innerHTML = "Remember: The chance that the math task is chosen is 75%, the chance that the verbal task is chosen is 25%";
+} else if (treatment == 3 & language == "English") {
+  document.getElementById("treatmenttext").innerHTML = "Remember: The chance that the math task is chosen is 50%, the chance that the verbal task is chosen is 50%";
+} else if (treatment == 1 & language == "Dutch") {
+  document.getElementById("treatmenttext").innerHTML = "Onthoud: De kans dat de math task wordt gekozen is 25%, de kans dat de verbal task wordt gekozen is 75%.";
+} else if (treatment == 2 & language == "Dutch") {
+  document.getElementById("treatmenttext").innerHTML = "Onthoud: De kans dat de math task wordt gekozen is 75%, de kans dat de verbal task wordt gekozen is 25%.";
+} else if (treatment == 3 & language == "Dutch") {
+  document.getElementById("treatmenttext").innerHTML = "Onthoud: De kans dat de math task wordt gekozen is 50%, de kans dat de verbal task wordt gekozen is 50%.";
 } else {
-  document.getElementById("treatmenttext").innerHTML = "The chance that the math task is chosen is 50%, the chance that the verbal task is chosen is 50%";
+  document.getElementById("treatmenttext").innerHTML = "Remember: The chance that the math task is chosen is 50%, the chance that the verbal task is chosen is 50%";
 }
 
-//get random rownumber for string
+//function get random rownumber for string
 function getRandomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
-  //console.log(Math.floor(Math.random() * (max - min) + min));
-  //console.log("test");
 }
 
+//get random rownumber for string
 let rownr = getRandomInt(1, length);
 document.getElementById("rownr").value = rownr +2;
 console.log(rownr +2);
