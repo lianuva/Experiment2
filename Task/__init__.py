@@ -22,7 +22,6 @@ class Constants(BaseConstants):
     bCheckFocus         = True   
 
 nrcategory = np.random.randint(1, 9,(41,1)) #40 random number between 1-8
-print(nrcategory)
 
 class Subsession(BaseSubsession):
     pass

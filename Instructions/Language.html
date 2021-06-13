@@ -1,11 +1,19 @@
 {{ block content }}
+<style>
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+</style>
 <img src="{{ static 'Questionnaire/UvA-logo.jpeg' }}" class="center"/>
 
 <p>
 <br>
-Welcome to this research study. Thank you for deciding to participate.
 
-Would you like to read the instructions in English or Dutch?
+    <p type = "text" id = "text1"></p>
+    <p type = "text" id = "text2"></p>
 
     <div>
         <input type="radio" id="English" name="language1" value="English">
@@ -18,6 +26,7 @@ Would you like to read the instructions in English or Dutch?
     <br>
 
     <input type="hidden" name="language" id="language"/>
+    
 
 <div id="div1"></div>
 
@@ -25,7 +34,63 @@ Would you like to read the instructions in English or Dutch?
 {{ endblock }}
 
 <script>
+
+    switch (getOS()) {
+    case 'Mac OS' : 
+        document.getElementById("text1").innerHTML            = 'Welcome to this research study. Thank you for deciding to participate.'; 
+        document.getElementById("text2").innerHTML            = 'Would you like to read the instructions in English or Dutch?'; 
+        break;
+    case 'Windows' :
+        document.getElementById("text1").innerHTML            = 'Welcome to this research study. Thank you for deciding to participate.'; 
+        document.getElementById("text2").innerHTML            = 'Would you like to read the instructions in English or Dutch?'; 
+        break;
+    case 'Linux' :
+        document.getElementById("text1").innerHTML            = 'Welcome to this research study. Thank you for deciding to participate.'; 
+        document.getElementById("text2").innerHTML            = 'Would you like to read the instructions in English or Dutch?'; 
+        break;
+    case 'Android' :
+        document.getElementById("English").style.visibility = 'hidden';
+        document.getElementById("Dutch").style.visibility = 'hidden';
+        document.ggetElementsByClassName('otree-btn-next btn btn-primary')[0].style.visibility = 'hidden';
+        document.getElementById("text1").innerHTML            = 'Unfortunately, this research can not be performed on a phone. Please email the link to yourself and try on a laptop/computer'; 
+        document.getElementById("text2").innerHTML            = 'If you want the researcher to send you a link, please let her know via : lian.jongejan@student.uva.nl'; 
+        break;
+    case 'iOS' :
+        document.getElementById("English").style.visibility = 'hidden';
+        document.getElementById("Dutch").style.visibility = 'hidden';
+        document.ggetElementsByClassName('otree-btn-next btn btn-primary')[0].style.visibility = 'hidden';
+        document.getElementById("text1").innerHTML            = 'Unfortunately, this research can not be performed on a phone. Please email the link to yourself and try on a laptop/computer'; 
+        document.getElementById("text2").innerHTML            = 'If you want the researcher to send you a link, please let her know via : lian.jongejan@student.uva.nl'; 
+        break;
+
+    };
+
+    function getOS() {
+        var userAgent = window.navigator.userAgent,
+            platform = window.navigator.platform,
+            macosPlatforms = ["Macintosh", "MacIntel", "MacPPC", "Mac68K"],
+            windowsPlatforms = ["Win32", "Win64", "Windows", "WinCE"],
+            iosPlatforms = ["iPhone", "iPad", "iPod"],
+            os1 = null;
+
+        if (macosPlatforms.indexOf(platform) !== -1) {
+        os1 = 'Mac OS';
+        } else if (iosPlatforms.indexOf(platform) !== -1) {
+        os1 = 'iOS';
+        } else if (windowsPlatforms.indexOf(platform) !== -1) {
+        os1 = 'Windows';
+        } else if (/Android/.test(userAgent)) {
+        os1 = 'Android';
+        } else if (!os && /Linux/.test(platform)) {
+        os1 = 'Linux';
+        } 
+        return os1;
+    }
     
+
+
+
+
     button = document.getElementsByClassName('otree-btn-next btn btn-primary')[0];
 
     button.addEventListener("click", function checkfunction() {
