@@ -15,12 +15,12 @@
     <p type = "text" id = "text1"></p>
     <p type = "text" id = "text2"></p>
     <div>
-        <input type="radio" id="English" name="language1" value="English"> English</input>
-        <!-- <label for="English">English</label> -->
+        <input type="radio" id="English" name="language1" value="English">
+        <label id ="labelEnglish" for="English">English</label>
     </div>
     <div>
-        <input type="radio" id="Dutch" name="language1" value="Dutch"> Dutch</input>
-        <!-- <label for="Dutch">Dutch</label> -->
+        <input type="radio" id="Dutch" name="language1" value="Dutch">
+        <label id ="labelDutch" for="Dutch">Dutch</label>
     </div>
     <br>
 
@@ -50,6 +50,8 @@
     case 'Android' :
         document.getElementById("English").style.visibility = 'hidden';
         document.getElementById("Dutch").style.visibility = 'hidden';
+        document.getElementById("labelEnglish").style.visibility = 'hidden';
+        document.getElementById("labelDutch").style.visibility = 'hidden';
         document.getElementsByClassName('otree-btn-next btn btn-primary')[0].style.visibility = 'hidden';
         document.getElementById("text1").innerHTML            = 'Unfortunately, this research can not be performed on a phone. Please email the link to yourself and try on a laptop/computer.'; 
         document.getElementById("text2").innerHTML            = 'If you want the researcher to send you a link, please let her know via : lian.jongejan@student.uva.nl'; 
@@ -57,6 +59,8 @@
     case 'iOS' :
         document.getElementById("English").style.visibility = 'hidden';
         document.getElementById("Dutch").style.visibility = 'hidden';
+        document.getElementById("labelEnglish").style.visibility = 'hidden';
+        document.getElementById("labelDutch").style.visibility = 'hidden';
         document.getElementsByClassName('otree-btn-next btn btn-primary')[0].style.visibility = 'hidden';
         document.getElementById("text1").innerHTML            = 'Unfortunately, this research can not be performed on a phone. Please email the link to yourself and try on a laptop/computer.'; 
         document.getElementById("text2").innerHTML            = 'If you want the researcher to send you a link, please let her know via : lian.jongejan@student.uva.nl'; 
@@ -85,10 +89,6 @@
         } 
         return os1;
     }
-    
-
-
-
 
     button = document.getElementsByClassName('otree-btn-next btn btn-primary')[0];
 
