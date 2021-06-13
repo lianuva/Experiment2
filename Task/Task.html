@@ -1,10 +1,12 @@
+<!-- Full-Screen & Focus -->
+<script src="{% static 'Task/FriendlyChecks.js' %}"></script>
+<link href="{% static 'Task/FriendlyChecks.css' %}" rel="stylesheet">
+
 <!-- Line-Reveal -->
 <link href="{% static 'Task/VT_functionality.css' %}" rel="stylesheet">
 <script src="{% static 'Task/VT_functionality.js' %}"></script>
 
-<!-- Full-Screen & Focus -->
-<script src="{% static 'Task/FriendlyChecks.js' %}"></script>
-<link href="{% static 'Task/FriendlyChecks.css' %}" rel="stylesheet">
+
 
 {{ block content }}
 
@@ -15,6 +17,7 @@
     <input type = "hidden" id="language" value="{{player.participant.language}}">
     
     <p type = "text" id ="treatmenttext"></p>
+
 
 </tr>
 
@@ -104,6 +107,7 @@
     <tr> 
         <td>
             <button type="button" id="b7.1"> 
+                Round number: <p type = "text" id = "text2"></p>
             </button>
         </td>
         <td>
@@ -120,6 +124,7 @@
         </td>
     </tr>
 </table>
+
 
 <input type="hidden" name="chosen" id="chosen"/>
 <input type="hidden" name="category" id="category"/>

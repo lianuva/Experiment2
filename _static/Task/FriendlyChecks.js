@@ -2,7 +2,6 @@
 const bRequireFS      = js_vars.bRequireFS;
 const bCheckFocus     = js_vars.bCheckFocus;
 
-
 if (bRequireFS) {
   // Create input iFullscreenChange
   var iFullscreenChange       = document.createElement("input");
@@ -29,7 +28,6 @@ if (bCheckFocus) {
   var TFocus      = new Date().getTime();
 }
 
-
 // Initialize Elements
 document.addEventListener("DOMContentLoaded", function() {
   // If Fullscreen is required
@@ -49,10 +47,7 @@ document.addEventListener("DOMContentLoaded", function() {
     window.addEventListener('focus', play);
   }
 
-
 });
-
-
 
 var elem = document.documentElement;
 var FullscreenActive = false; 
@@ -90,13 +85,14 @@ function CheckFS() {
     console.log('FullScreen');
     PopUp.style.visibility          = 'hidden';
     PopUp.style.zIndex              = -1;
-
+    PopUp.className                 = 'overlay'; //needed because it needs to overlay all html
   } else {
     // Make cover and text visible
     console.log('Not FullScreen');
     iFullscreenChange.value         = +iFullscreenChange.value+1; 
     PopUp.style.visibility          = 'visible';
     PopUp.style.zIndex              = 100;
+    PopUp.className                 = 'overlay'; //needed because it needs to overlay all html
   }
 };
 
@@ -120,7 +116,7 @@ function CreateFullScreenPopUp() {
   PopUpText2.className             = 'fs-popup-text';
   switch (getOS()) {
     case 'Mac OS' : 
-      PopUpText2.innerHTML            = 'Press ⌘+⇧+F'; 
+      PopUpText2.innerHTML            = 'Press cmd⌘+crtl+F (also hide toolbar)'; 
       break;
     case 'Windows' :
       PopUpText2.innerHTML             = 'Press F11';

@@ -11,8 +11,7 @@ Main task where participants has to decide between two subjects
 class Constants(BaseConstants):
     name_in_url = 'Task'
     players_per_group = None
-    num_rounds = 8 #!eventually 40
-    counter = num_rounds
+    num_rounds = 40
     FM = pd.read_csv("_static/Task/FM.csv") #10 trials
     MF = pd.read_csv("_static/Task/MF.csv") #10 trials
     FF = pd.read_csv("_static/Task/FF.csv") #5 trials
@@ -22,15 +21,13 @@ class Constants(BaseConstants):
     bRequireFS          = True  
     bCheckFocus         = True   
 
-nrcategory = np.random.randint(1, 9,(40,1))
+nrcategory = np.random.randint(1, 9,(41,1))
 
 class Subsession(BaseSubsession):
     pass
 
-
 class Group(BaseGroup):
     pass
-
 
 class Player(BasePlayer):
     sButtonClick        = models.StringField(blank=True)
@@ -159,7 +156,7 @@ class Task(Page):
                 'data'          : data,
                 'length'        : length,
                 'category'      : player.category,
-                # 'rownr'         : 0,
+                'round_number'  : player.round_number,
                 'bRequireFS'    : Constants.bRequireFS,
                 'bCheckFocus'   : Constants.bCheckFocus,
             }
@@ -168,6 +165,5 @@ class Task(Page):
     def before_next_page(player, timeout_happened):  
         participant = player.participant
         participant.category = player.category
-        # participant.rownr = player.rownr
 
 page_sequence = [Task]

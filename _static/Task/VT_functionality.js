@@ -14,13 +14,13 @@ let chosen          = 0;
 let data            = js_vars.data;
 let length          = js_vars.length;
 let category        = js_vars.category;
+let round_number    = js_vars.round_number;
 // let rownr           = js_vars.rownr;
 document.getElementById("chosen").value = 0;
 // document.getElementById("rownr").value = rownr;
 document.getElementById("category").value = category;
-
-
-// console.log (data)
+//display round number to html
+document.getElementById("text2").innerHTML = round_number;
 
 // Create hidden input (Pressed Buttons)
 let sButtonClick        = document.createElement("input");
@@ -100,7 +100,6 @@ document.getElementById("rownr").value = rownr +2;
 console.log(rownr +2);
 
 // get values from csv string
-
 Genderp1    = data.split("[")[1].split(",")[rownr];
 Matrixp1    = data.split("[")[2].split(",")[rownr];
 Verbalp1    = data.split("[")[3].split(",")[rownr];
@@ -112,6 +111,7 @@ Verbalp2    = data.split("[")[8].split(",")[rownr];
 Agep2       = data.split("[")[9].split(",")[rownr];
 Occupp2     = data.split("[")[10].split(",")[rownr];
 
+//set gender to text
 if (Genderp1 == 1){
   Genderp1 = 'Male'
 } else if (Genderp1 == 2){
@@ -124,6 +124,7 @@ if (Genderp2 == 1){
   Genderp2 = 'Female'
 }
 
+//set occupation to text
 if (Occupp1 == 1 ){
   Occupp1 = 'Working 36-40hrs'
 } else if (Occupp1 == 2){
@@ -166,27 +167,25 @@ if (Occupp2 == 1){
 } else if (Occupp2 == 10){
   Occupp2 = 'Unknown'
 }
-
+//normalize score
 Matrixp1 = ((Matrixp1 / 12) * 10).toFixed(1);
 Matrixp2 = ((Matrixp2 / 12) * 10).toFixed(1);
 Verbalp1 = ((Verbalp1 / 75) * 10).toFixed(1);
 Verbalp2 = ((Verbalp2 / 75) * 10).toFixed(1);
 
+// console.log(category);
+// console.log(Genderp1);
+// console.log(Matrixp1);
+// console.log(Verbalp1);
+// console.log(Agep1);
+// console.log(Occupp1);
+// console.log(Genderp2);
+// console.log(Matrixp2);
+// console.log(Verbalp2);
+// console.log(Agep2);
+// console.log(Occupp2);
 
-
-console.log(category);
-console.log(Genderp1);
-console.log(Matrixp1);
-console.log(Verbalp1);
-console.log(Agep1);
-console.log(Occupp1);
-console.log(Genderp2);
-console.log(Matrixp2);
-console.log(Verbalp2);
-console.log(Agep2);
-console.log(Occupp2);
-
-
+//display veriables to buttons
 document.getElementById("mathp1").textContent = Matrixp1;
 document.getElementById("verbalp1").textContent = Verbalp1;
 document.getElementById("agep1").textContent = Agep1;
@@ -198,8 +197,20 @@ document.getElementById("agep2").textContent = Agep2;
 document.getElementById("genderp2").textContent = Genderp2;
 document.getElementById("occupationp2").textContent = Occupp2;
 
+// if (
+//   document.fullscreenElement || /* Standard syntax */
+//   document.webkitFullscreenElement || /* Safari and Opera syntax */
+//   document.msFullscreenElement /* IE11 syntax */
+// ) {
+//   var fullscreen = 1;
+// } else {
+//   var fullscreen = 0;
+// }
+
+// console.log(fullscreen);
 
 
+//!from here: code alejandro:
 // ----------------------------------------------------- //
 //  Function:       1. Creates inputs necessary for Visual Trace
 // 
