@@ -15,6 +15,8 @@ let data            = js_vars.data;
 let length          = js_vars.length;
 let category        = js_vars.category;
 let round_number    = js_vars.round_number;
+//! let randomvar       = js_vars.randomvar;
+//! console.log(randomvar);
 // let rownr           = js_vars.rownr;
 document.getElementById("chosen").value = 0;
 // document.getElementById("rownr").value = rownr;
@@ -173,29 +175,47 @@ Matrixp2 = ((Matrixp2 / 12) * 10).toFixed(1);
 Verbalp1 = ((Verbalp1 / 75) * 10).toFixed(1);
 Verbalp2 = ((Verbalp2 / 75) * 10).toFixed(1);
 
-// console.log(category);
-// console.log(Genderp1);
-// console.log(Matrixp1);
-// console.log(Verbalp1);
-// console.log(Agep1);
-// console.log(Occupp1);
-// console.log(Genderp2);
-// console.log(Matrixp2);
-// console.log(Verbalp2);
-// console.log(Agep2);
-// console.log(Occupp2);
+randomvar = getRandomInt (1,3); //random number between 1,2
+document.getElementById("randomvar").value = randomvar;
+console.log(document.getElementById("randomvar").value);
 
 //display veriables to buttons
-document.getElementById("mathp1").textContent = Matrixp1;
-document.getElementById("verbalp1").textContent = Verbalp1;
-document.getElementById("agep1").textContent = Agep1;
-document.getElementById("genderp1").textContent = Genderp1;
-document.getElementById("occupationp1").textContent = Occupp1;
-document.getElementById("mathp2").textContent = Matrixp2;
-document.getElementById("verbalp2").textContent = Verbalp2;
-document.getElementById("agep2").textContent = Agep2;
-document.getElementById("genderp2").textContent = Genderp2;
-document.getElementById("occupationp2").textContent = Occupp2;
+if (randomvar == 1) {
+  document.getElementById("mathp1").textContent = Matrixp1;
+  document.getElementById("verbalp1").textContent = Verbalp1;
+  document.getElementById("agep1").textContent = Agep1;
+  document.getElementById("genderp1").textContent = Genderp1;
+  document.getElementById("occupationp1").textContent = Occupp1;
+  document.getElementById("mathp2").textContent = Matrixp2;
+  document.getElementById("verbalp2").textContent = Verbalp2;
+  document.getElementById("agep2").textContent = Agep2;
+  document.getElementById("genderp2").textContent = Genderp2;
+  document.getElementById("occupationp2").textContent = Occupp2;
+} else if (randomvar ==2) {
+  document.getElementById("mathp1").textContent = Matrixp2;
+  document.getElementById("verbalp1").textContent = Verbalp2;
+  document.getElementById("agep1").textContent = Agep2;
+  document.getElementById("genderp1").textContent = Genderp2;
+  document.getElementById("occupationp1").textContent = Occupp2;
+  document.getElementById("mathp2").textContent = Matrixp1;
+  document.getElementById("verbalp2").textContent = Verbalp1;
+  document.getElementById("agep2").textContent = Agep1;
+  document.getElementById("genderp2").textContent = Genderp1;
+  document.getElementById("occupationp2").textContent = Occupp1;
+} else {
+  document.getElementById("mathp1").textContent = Matrixp1;
+  document.getElementById("verbalp1").textContent = Verbalp1;
+  document.getElementById("agep1").textContent = Agep1;
+  document.getElementById("genderp1").textContent = Genderp1;
+  document.getElementById("occupationp1").textContent = Occupp1;
+  document.getElementById("mathp2").textContent = Matrixp2;
+  document.getElementById("verbalp2").textContent = Verbalp2;
+  document.getElementById("agep2").textContent = Agep2;
+  document.getElementById("genderp2").textContent = Genderp2;
+  document.getElementById("occupationp2").textContent = Occupp2;
+}
+
+
 
 // if (
 //   document.fullscreenElement || /* Standard syntax */

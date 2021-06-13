@@ -21,7 +21,8 @@ class Constants(BaseConstants):
     bRequireFS          = True  
     bCheckFocus         = True   
 
-nrcategory = np.random.randint(1, 9,(41,1))
+nrcategory = np.random.randint(1, 9,(41,1)) #40 random number between 1-8
+print(nrcategory)
 
 class Subsession(BaseSubsession):
     pass
@@ -35,6 +36,7 @@ class Player(BasePlayer):
     chosen              = models.IntegerField(blank=True)
     category            = models.StringField(blank=True)
     rownr               = models.IntegerField(blank=True)
+    randomvar           = models.IntegerField(blank=True) #if 1, normal order, if 2, reverse order of csv
     iFocusLost          = models.IntegerField(blank=True) #tbv FriendlyChecks
     dFocusLostT         = models.FloatField(blank=True) #tbv FriendlyChecks
     iFullscreenChange   = models.IntegerField(blank=True) #tbv FriendlyChecks
@@ -48,6 +50,7 @@ class Task(Page):
         'chosen',
         'category',
         'rownr',
+        'randomvar',
         'iFocusLost',
         'dFocusLostT',
         'iFullscreenChange',
