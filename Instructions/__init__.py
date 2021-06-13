@@ -16,6 +16,7 @@ class Group(BaseGroup):
     pass
 
 class Player(BasePlayer):
+    # phone = models.StringField(blank=True)
     consent = models.IntegerField(
         choices=[
         [1, 'I would like to participate'],
@@ -28,7 +29,7 @@ class Player(BasePlayer):
         [1, 'Ik wil graag meedoen aan dit onderzoek'],
         ],
         widget=widgets.RadioSelect,
-        label="Door op onderstaande knop te drukken, bevestige je dat jou participatie in dit onderzoek vrijwillig is, dat je ouder bent dan 18 jaar en dat je je er van bewust bent dat je jouw participatie op ieder moment stop kan zetten zonder daar een reden voor hoeven te geven.",
+        label="Door op onderstaande knop te drukken, bevestig je dat jou participatie in dit onderzoek vrijwillig is, dat je ouder bent dan 18 jaar en dat je je er van bewust bent dat je jouw participatie op ieder moment stop kan zetten zonder daar een reden voor hoeven te geven.",
     )
     treatment = models.IntegerField(blank = True)
     language  = models.StringField(blank = True)

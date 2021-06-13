@@ -14,6 +14,10 @@
 
     <p type = "text" id = "text1"></p>
     <p type = "text" id = "text2"></p>
+
+    <!-- <input type= "text" id="phone1" visibility = "visible">
+    <button type="button" id="phonebutton" visibility ="visible" value="submit">Submit</button> -->
+
     <div>
         <input type="radio" id="English" name="language1" value="English">
         <label id ="labelEnglish" for="English">English</label>
@@ -25,6 +29,7 @@
     <br>
 
     <input type="hidden" name="language" id="language"/>
+    <!-- <input type="hidden" name="phone" id="phone"/> -->
     
 
 <div id="div1"></div>
@@ -38,6 +43,8 @@
     case 'Mac OS' : 
         document.getElementById("text1").innerHTML            = 'Welcome to this research study. Thank you for deciding to participate.'; 
         document.getElementById("text2").innerHTML            = 'Would you like to read the instructions in English or Dutch?'; 
+        // document.getElementById("phonebutton").style.visibility     = 'hidden';
+        // document.getElementById("phone1").style.visibility          = 'hidden';
         break;
     case 'Windows' :
         document.getElementById("text1").innerHTML            = 'Welcome to this research study. Thank you for deciding to participate.'; 
@@ -48,22 +55,24 @@
         document.getElementById("text2").innerHTML            = 'Would you like to read the instructions in English or Dutch?'; 
         break;
     case 'Android' :
-        document.getElementById("English").style.visibility = 'hidden';
-        document.getElementById("Dutch").style.visibility = 'hidden';
-        document.getElementById("labelEnglish").style.visibility = 'hidden';
-        document.getElementById("labelDutch").style.visibility = 'hidden';
+        document.getElementById("English").style.visibility         = 'hidden';
+        document.getElementById("Dutch").style.visibility           = 'hidden';
+        document.getElementById("labelEnglish").style.visibility    = 'hidden';
+        document.getElementById("labelDutch").style.visibility      = 'hidden';
         document.getElementsByClassName('otree-btn-next btn btn-primary')[0].style.visibility = 'hidden';
-        document.getElementById("text1").innerHTML            = 'Unfortunately, this research can not be performed on a phone. Please email the link to yourself and try on a laptop/computer.'; 
-        document.getElementById("text2").innerHTML            = 'If you want the researcher to send you a link, please let her know via : lian.jongejan@student.uva.nl'; 
+        document.getElementById("text1").innerHTML                  = 'Unfortunately, this research can not be performed on a phone. Please email the link to yourself and try on a laptop/computer.'; 
+        document.getElementById("text2").innerHTML                  = 'If you want the researcher to send you a link, please leave your e-mailadress:'; 
+        document.getElementsByClassName("phone").style.visibility   = 'visible';
         break;
     case 'iOS' :
-        document.getElementById("English").style.visibility = 'hidden';
-        document.getElementById("Dutch").style.visibility = 'hidden';
-        document.getElementById("labelEnglish").style.visibility = 'hidden';
-        document.getElementById("labelDutch").style.visibility = 'hidden';
+        document.getElementById("English").style.visibility         = 'hidden';
+        document.getElementById("Dutch").style.visibility           = 'hidden';
+        document.getElementById("labelEnglish").style.visibility    = 'hidden';
+        document.getElementById("labelDutch").style.visibility      = 'hidden';
         document.getElementsByClassName('otree-btn-next btn btn-primary')[0].style.visibility = 'hidden';
-        document.getElementById("text1").innerHTML            = 'Unfortunately, this research can not be performed on a phone. Please email the link to yourself and try on a laptop/computer.'; 
-        document.getElementById("text2").innerHTML            = 'If you want the researcher to send you a link, please let her know via : lian.jongejan@student.uva.nl'; 
+        document.getElementById("text1").innerHTML                  = 'Unfortunately, this research can not be performed on a phone. Please email the link to yourself and try on a laptop/computer.'; 
+        document.getElementById("text2").innerHTML                     = 'If you want the researcher to send you a link, please let her know via : lian.jongejan@student.uva.nl'; 
+        document.getElementsByClassName("phone").style.visibility   = 'visible';
         break;
 
     };
