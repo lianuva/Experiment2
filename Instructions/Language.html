@@ -16,7 +16,6 @@
     <p type = "text" id = "text2"></p>
 
     <input type= "text" id="phone1" visibility = "visible">
-    <button type="button" id="phonebutton" visibility ="visible" value="submit">Submit</button>
 
     <div>
         <input type="radio" id="English" name="language1" value="English">
@@ -38,6 +37,25 @@
 {{ endblock }}
 
 <script>
+    
+    button = document.getElementsByClassName('otree-btn-next btn btn-primary')[0];
+   
+    button.addEventListener("click", function checkfunction() {
+        var getSelectedValue = document.querySelector(   
+                'input[name="language1"]:checked');   
+                
+            if(getSelectedValue != null) {   
+                if (getSelectedValue.value == "Dutch") {
+                    document.getElementById("language").value = 'Dutch';
+                } else if (getSelectedValue.value == "English") {
+                    document.getElementById("language").value = 'English';
+                }  
+            }   
+            else {   
+                document.getElementById("language").value = 'English';
+            }   
+    });
+    console.log(document.getElementById("language").value);
 
     switch (getOS()) {
     case 'Mac OS' : 
@@ -77,7 +95,7 @@
         document.getElementById("labelEnglish").style.visibility    = 'hidden';
         document.getElementById("labelDutch").style.visibility      = 'hidden';
         document.getElementById("text1").innerHTML                  = 'Unfortunately, this research can not be performed on a phone. Please email the link to yourself and try on a laptop/computer.'; 
-        document.getElementById("text2").innerHTML                  = 'If you want the researcher to send you a link, please let her know via : lian.jongejan@student.uva.nl'; 
+        document.getElementById("text2").innerHTML                  = 'If you want the researcher to send you a link, please please leave your e-mailadress:'; 
         document.getElementsByClassName("phone").style.visibility   = 'visible';
         document.getElementById("phone").value                      = 1;
         break;
@@ -106,24 +124,6 @@
         return os1;
     }
 
-    button = document.getElementsByClassName('otree-btn-next btn btn-primary')[0];
-   
 
-    button.addEventListener("click", function checkfunction() {
-        var getSelectedValue = document.querySelector(   
-                'input[name="language1"]:checked');   
-                
-            if(getSelectedValue != null) {   
-                if (getSelectedValue.value == "Dutch") {
-                    document.getElementById("language").value = 'Dutch';
-                } else if (getSelectedValue.value == "English") {
-                    document.getElementById("language").value = 'English';
-                }  
-            }   
-            else {   
-                document.getElementById("language").value = 'English';
-            }   
-    });
-    console.log(document.getElementById("language").value);
 
 </script>
