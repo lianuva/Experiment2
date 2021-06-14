@@ -103,4 +103,4 @@ class controlquestionDutch(Page):
     def is_displayed(player: Player):
         return player.participant.language == 'Dutch'
 
-page_sequence = [Language, Welcome, WelcomeDutch, Explanation, ExplanationDutch, controlquestion, controlquestionDutch]
+page_sequence = [Language, exitexperiment, Welcome, WelcomeDutch, Explanation, ExplanationDutch, controlquestion, controlquestionDutch]
