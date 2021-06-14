@@ -44,12 +44,13 @@ class Language(Page):
     def before_next_page(player, timeout_happened):  
         participant             = player.participant
         participant.language    = player.language
-        participant.phone       = player.phone
+        # participant.phone       = player.phone
 
 class exitexperiment(Page):
-    @staticmethod
-    def is_displayed(player: Player):
-        return player.participant.phone == '1'
+    # @staticmethod
+    # def is_displayed(player: Player):
+    #     return player.participant.phone == '1'
+    pass
 
 class Welcome(Page):
     form_model = 'player'
