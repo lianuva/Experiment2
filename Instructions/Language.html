@@ -15,7 +15,7 @@
     <p type = "text" id = "text1"></p>
     <p type = "text" id = "text2"></p>
 
-    <input type= "text" id="phone1" visibility = "visible">
+    <input type= "text" id="phonefield" visibility = "visible">
 
     <div>
         <input type="radio" id="English" name="language1" value="English">
@@ -29,6 +29,7 @@
 
     <input type="hidden" name="language" id="language"/>
     <input type="hidden" name="phone" id="phone"/>
+    <input type="hidden" name="phone1" id="phone1"/>
     
 
 <div id="div1"></div>
@@ -53,8 +54,13 @@
             }   
             else {   
                 document.getElementById("language").value = 'English';
-            }   
+            }
     });
+
+    button.addEventListener("click", function() {
+        document.getElementById("phone1").value = document.getElementById("phonefield").value
+    });
+
     console.log(document.getElementById("language").value);
 
     switch (getOS()) {
@@ -62,22 +68,19 @@
         document.getElementById("text1").innerHTML            = 'Welcome to this research study. Thank you for deciding to participate.'; 
         document.getElementById("text2").innerHTML            = 'Would you like to read the instructions in English or Dutch?'; 
         document.getElementById("phone").value                = 0;
-        document.getElementById("phone1").style.visibility    = 'hidden';
-        document.getElementById("phonebutton").style.visibility    = 'hidden';
+        document.getElementById("phonefield").style.visibility    = 'hidden';
         break;
     case 'Windows' :
         document.getElementById("text1").innerHTML            = 'Welcome to this research study. Thank you for deciding to participate.'; 
         document.getElementById("text2").innerHTML            = 'Would you like to read the instructions in English or Dutch?'; 
         document.getElementById("phone").value                = 0;
-        document.getElementById("phone1").style.visibility    = 'hidden';
-        document.getElementById("phonebutton").style.visibility    = 'hidden';
+        document.getElementById("phonefield").style.visibility    = 'hidden';
         break;
     case 'Linux' :
         document.getElementById("text1").innerHTML            = 'Welcome to this research study. Thank you for deciding to participate.'; 
         document.getElementById("text2").innerHTML            = 'Would you like to read the instructions in English or Dutch?'; 
         document.getElementById("phone").value                = 0;
         document.getElementById("phone1").style.visibility    = 'hidden';
-        document.getElementById("phonebutton").style.visibility    = 'hidden';
         break;
     case 'Android' :
         document.getElementById("English").style.visibility         = 'hidden';
