@@ -16,8 +16,8 @@ class Group(BaseGroup):
     pass
 
 class Player(BasePlayer):
-    phone = models.StringField(blank=True) #0 if no phone, 1 if phone
     phone1 = models.StringField(blank = True) #input field for email
+    phone = models.StringField(blank=True) #0 if no phone, 1 if phone
     consent = models.IntegerField(
         choices=[
         [1, 'I would like to participate'],
@@ -44,12 +44,12 @@ class Language(Page):
     def before_next_page(player, timeout_happened):  
         participant             = player.participant
         participant.language    = player.language
-        participant.phone       = player.phone
+        # participant.phone       = player.phone
 
 class exitexperiment(Page):
     @staticmethod
     def is_displayed(player: Player):
-        return player.participant.phone == '1'
+        return player.phone == '1'
     
 
 class Welcome(Page):
