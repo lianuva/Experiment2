@@ -2,6 +2,7 @@ from otree.api import *
 import pandas as pd
 import json
 import numpy as np
+import random
 
 doc = """
 Main task where participants has to decide between two subjects
@@ -11,17 +12,22 @@ Main task where participants has to decide between two subjects
 class Constants(BaseConstants):
     name_in_url = 'Task'
     players_per_group = None
-    num_rounds = 40
-    FM = pd.read_csv("_static/Task/FM.csv") #10 trials
-    MF = pd.read_csv("_static/Task/MF.csv") #10 trials
-    FF = pd.read_csv("_static/Task/FF.csv") #5 trials
-    MM = pd.read_csv("_static/Task/MM.csv") #5 trials
-    M  = pd.read_csv("_static/Task/2males.csv") #5 trials
-    F  = pd.read_csv("_static/Task/2females.csv") #5 trials
+    num_rounds = 20
+    FM = pd.read_csv("_static/Task/FM.csv") #10 trials 8
+    MF = pd.read_csv("_static/Task/MF.csv") #10 trials 8
+    FF = pd.read_csv("_static/Task/FF.csv") #5 trials 1
+    MM = pd.read_csv("_static/Task/MM.csv") #5 trials 1
+    M  = pd.read_csv("_static/Task/2males.csv") #5 trials 1 
+    F  = pd.read_csv("_static/Task/2females.csv") #5 trials 1
     bRequireFS          = True  
     bCheckFocus         = True   
 
-nrcategory = np.random.randint(1, 9,(41,1)) #40 random number between 1-8
+# nrcategory = np.random.randint(1, 9,(41,1)) #40 random number between 1-8
+# rng = np.random.default_rng()
+nrcategory = np.array([1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,4,5,6]) #one more 1, because round_number =0 does not exist
+nrcategorystring = random.shuffle(nrcategory)
+
+#! here also rownr
 
 class Subsession(BaseSubsession):
     pass
@@ -57,7 +63,7 @@ class Task(Page):
 
     @staticmethod
     def js_vars(player: Player):
-            if nrcategory[player.round_number] == 1 or nrcategory[player.round_number] == 2:
+            if nrcategory[player.round_number-1] == 1:
                 x = {
                     "Genderp1"   : Constants.FM["female_gender"].tolist(),
                     "Matrixp1"   : Constants.FM["female_matrix1"].tolist(),
@@ -73,7 +79,7 @@ class Task(Page):
                 data = json.dumps(x)
                 length = len(Constants.FM["female_gender"])
                 player.category = 'FM'
-            elif nrcategory[player.round_number] == 3 or nrcategory[player.round_number] == 4:
+            elif nrcategory[player.round_number-1] == 2:
                 x = {
                     "Genderp1"   : Constants.MF["female_gender"].tolist(),
                     "Matrixp1"   : Constants.MF["female_matrix1"].tolist(),
@@ -89,7 +95,7 @@ class Task(Page):
                 data = json.dumps(x)
                 length = len(Constants.FM["female_gender"])
                 player.category = 'MF'
-            elif nrcategory[player.round_number] == 5:   
+            elif nrcategory[player.round_number-1] == 3:   
                 x = {
                     "Genderp1"   : Constants.FF["female_gender"].tolist(),
                     "Matrixp1"   : Constants.FF["female_matrix1"].tolist(),
@@ -105,7 +111,7 @@ class Task(Page):
                 data = json.dumps(x)
                 length = len(Constants.FM["female_gender"])
                 player.category = 'FF'
-            elif nrcategory[player.round_number] == 6:   
+            elif nrcategory[player.round_number-1] == 4:   
                 x = {
                     "Genderp1"   : Constants.MM["female_gender"].tolist(),
                     "Matrixp1"   : Constants.MM["female_matrix1"].tolist(),
@@ -121,7 +127,7 @@ class Task(Page):
                 data = json.dumps(x)
                 length = len(Constants.FM["female_gender"])
                 player.category = 'MM'
-            elif nrcategory[player.round_number] == 7:   
+            elif nrcategory[player.round_number-1] == 5:   
                 x = {
                     "Genderp1"   : Constants.M["female_gender"].tolist(),
                     "Matrixp1"   : Constants.M["female_matrix1"].tolist(),
@@ -137,7 +143,7 @@ class Task(Page):
                 data = json.dumps(x)
                 length = len(Constants.FM["female_gender"])
                 player.category = 'M'
-            elif nrcategory[player.round_number] == 8:   
+            elif nrcategory[player.round_number-1] == 6:   
                 x = {
                     "Genderp1"   : Constants.F["female_gender"].tolist(),
                     "Matrixp1"   : Constants.F["female_matrix1"].tolist(),

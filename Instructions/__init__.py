@@ -16,7 +16,8 @@ class Group(BaseGroup):
     pass
 
 class Player(BasePlayer):
-    # phone = models.StringField(blank=True)
+    phone = models.StringField(blank=True) #0 if no phone, 1 if phone
+    phone1 = models.StringField(blank = True) #input field for email
     consent = models.IntegerField(
         choices=[
         [1, 'I would like to participate'],
@@ -37,12 +38,18 @@ class Player(BasePlayer):
 # PAGES
 class Language(Page):
     form_model = 'player'
-    form_fields = ['language']
+    form_fields = ['language', 'phone']
 
     @staticmethod
     def before_next_page(player, timeout_happened):  
-        participant = player.participant
-        participant.language = player.language
+        participant             = player.participant
+        participant.language    = player.language
+        participant.phone       = player.phone
+
+class exitexperiment(Page):
+    @staticmethod
+    def is_displayed(player: Player):
+        return player.participant.phone == 1
 
 class Welcome(Page):
     form_model = 'player'
