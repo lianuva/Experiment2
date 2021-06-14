@@ -38,7 +38,7 @@ class Player(BasePlayer):
 # PAGES
 class Language(Page):
     form_model = 'player'
-    form_fields = ['language', 'phone', 'phone1']
+    form_fields = ['language','phone', 'phone1']
 
     @staticmethod
     def before_next_page(player, timeout_happened):  
@@ -47,10 +47,9 @@ class Language(Page):
         participant.phone       = player.phone
 
 class exitexperiment(Page):
-    
     @staticmethod
     def is_displayed(player: Player):
-        return player.participant.phone == 1
+        return player.participant.phone == '1'
 
 class Welcome(Page):
     form_model = 'player'
