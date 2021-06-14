@@ -84,20 +84,18 @@
         document.getElementById("Dutch").style.visibility           = 'hidden';
         document.getElementById("labelEnglish").style.visibility    = 'hidden';
         document.getElementById("labelDutch").style.visibility      = 'hidden';
+        document.getElementById("phone").value                      = 1;
         document.getElementById("text1").innerHTML                  = 'Unfortunately, this research can not be performed on a phone. Please email the link to yourself and try on a laptop/computer.'; 
         document.getElementById("text2").innerHTML                  = 'If you want the researcher to send you a link, please leave your e-mailadress:'; 
-        document.getElementsByClassName("phone").style.visibility   = 'visible';
-        document.getElementById("phone").value                      = 1;
         break;
     case 'iOS' :
         document.getElementById("English").style.visibility         = 'hidden';
         document.getElementById("Dutch").style.visibility           = 'hidden';
         document.getElementById("labelEnglish").style.visibility    = 'hidden';
         document.getElementById("labelDutch").style.visibility      = 'hidden';
-        document.getElementById("text1").innerHTML                  = 'Unfortunately, this research can not be performed on a phone. Please email the link to yourself and try on a laptop/computer.'; 
-        document.getElementById("text2").innerHTML                  = 'If you want the researcher to send you a link, please please leave your e-mailadress:'; 
-        document.getElementsByClassName("phone").style.visibility   = 'visible';
         document.getElementById("phone").value                      = 1;
+        document.getElementById("text1").innerHTML                  = 'Unfortunately, this research can not be performed on a phone. Please email the link to yourself and try on a laptop/computer.'; 
+        document.getElementById("text2").innerHTML                  = 'If you want the researcher to send you a link, please leave your e-mailadress:'; 
         break;
 
     };
