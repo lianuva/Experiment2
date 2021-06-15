@@ -13,15 +13,16 @@ class Constants(BaseConstants):
     name_in_url = 'Task'
     players_per_group = None
     num_rounds = 20
-    FM = pd.read_csv("_static/Task/FM.csv") #10 trials 8
-    MF = pd.read_csv("_static/Task/MF.csv") #10 trials 8
-    FF = pd.read_csv("_static/Task/FF.csv") #5 trials 1
-    MM = pd.read_csv("_static/Task/MM.csv") #5 trials 1
-    M  = pd.read_csv("_static/Task/2males.csv") #5 trials 1 
-    F  = pd.read_csv("_static/Task/2females.csv") #5 trials 1
+    FM = pd.read_csv("_static/Task/FM.csv") #8 trials per round
+    MF = pd.read_csv("_static/Task/MF.csv") #8 trials per round
+    FF = pd.read_csv("_static/Task/FF.csv") #1 trial per round
+    MM = pd.read_csv("_static/Task/MM.csv") #1 trial per round
+    M  = pd.read_csv("_static/Task/2males.csv") #1 trial per round
+    F  = pd.read_csv("_static/Task/2females.csv") #1 trial per round
     bRequireFS          = True  
     bCheckFocus         = True   
 
+#define category and rownr string. Max rownumber is 326 because thats the min length of the csv's
 nrcategory = np.array(['FM','FM','FM','FM','FM','FM','FM','FM','MF','MF','MF','MF','MF','MF','MF','MF','FF','MM','M','F']) 
 nrcategorystring = random.shuffle(nrcategory)
 rownrstring = [random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326)]
@@ -60,10 +61,6 @@ class Task1(Page):
 
     @staticmethod
     def js_vars(player: Player):
-            # nrcategory = Constants.nrcategory
-            # # rownr = np.array2string(Constants.rownrstring)
-            # # rownr = Constants.rownrstring[player.round_number]
-            # rownr = Constants.rownrstring
             if nrcategory[player.round_number-1] == 'FM':
                 x = {
                     "Genderp1"   : Constants.FM["female_gender"].tolist(),
@@ -80,7 +77,6 @@ class Task1(Page):
                 data = json.dumps(x)
                 player.category = nrcategory[player.round_number-1]
                 player.rownr = (rownrstring[player.round_number-1] +2)
-                # player.rownr = player.rownr +2
             elif nrcategory[player.round_number-1] == 'MF':
                 x = {
                     "Genderp1"   : Constants.MF["female_gender"].tolist(),
@@ -97,7 +93,6 @@ class Task1(Page):
                 data = json.dumps(x)
                 player.category = nrcategory[player.round_number-1]
                 player.rownr = (rownrstring[player.round_number-1] +2)
-                # player.rownr = player.rownr +2
             elif nrcategory[player.round_number-1] == 'FF':   
                 x = {
                     "Genderp1"   : Constants.FF["female_gender"].tolist(),
@@ -114,7 +109,6 @@ class Task1(Page):
                 data = json.dumps(x)
                 player.category = nrcategory[player.round_number-1]
                 player.rownr = (rownrstring[player.round_number-1] +2)
-                # player.rownr = player.rownr +2
             elif nrcategory[player.round_number-1] == 'MM':   
                 x = {
                     "Genderp1"   : Constants.MM["female_gender"].tolist(),
@@ -131,7 +125,6 @@ class Task1(Page):
                 data = json.dumps(x)
                 player.category = nrcategory[player.round_number-1]
                 player.rownr = (rownrstring[player.round_number-1] +2)
-                # player.rownr = player.rownr +2
             elif nrcategory[player.round_number-1] == 'M':   
                 x = {
                     "Genderp1"   : Constants.M["female_gender"].tolist(),
@@ -148,7 +141,6 @@ class Task1(Page):
                 data = json.dumps(x)
                 player.category = nrcategory[player.round_number-1]
                 player.rownr = (rownrstring[player.round_number-1] +2)
-                # player.rownr = player.rownr +2
             elif nrcategory[player.round_number-1] == 'F':   
                 x = {
                     "Genderp1"   : Constants.F["female_gender"].tolist(),
@@ -165,7 +157,6 @@ class Task1(Page):
                 data = json.dumps(x)
                 player.category = nrcategory[player.round_number-1]
                 player.rownr = (rownrstring[player.round_number-1] +2)
-
             return {
                 'data'          : data,
                 'rownr'         : player.rownr,
@@ -181,13 +172,5 @@ class Task1(Page):
         participant.category = player.category
         participant.rownrstring = rownrstring
         participant.categorystring = nrcategory
-
-    # @staticmethod
-    # def vars_for_template(player: Player):
-    #     participant = player.participant
-    #     return {
-    #         'rownrstring' : participant.rownrstring,
-    #         'categorystring' : participant.categorystring
-    #     }
 
 page_sequence = [Task1]

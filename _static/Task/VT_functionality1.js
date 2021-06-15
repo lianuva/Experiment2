@@ -12,24 +12,17 @@ var diff            = 0;
 // Other variables
 let chosen          = 0;
 let data            = js_vars.data;
-//! let length          = js_vars.length;
 let category        = js_vars.category;
 let round_number    = js_vars.round_number;
 let rownr           = js_vars.rownr;
-//! let rownrstring     = js_vars.rownrstring;
-
-console.log(rownr)
 
 //save vars
 document.getElementById("rownr").value        = rownr + 2;
-console.log(rownr + 2);
-//! document.getElementById("rownrstring").value  = rownrstring;
-//! console.log(document.getElementById("rownrstring").value);
 document.getElementById("chosen").value       = 0;
 document.getElementById("category").value     = category;
 
 //display round number to html
-document.getElementById("text2").innerHTML    = round_number;
+document.getElementById("text2").innerHTML    = (round_number + 20);
 
 // Create hidden input (Pressed Buttons)
 let sButtonClick        = document.createElement("input");
@@ -209,22 +202,8 @@ if (randomvar == 1) {
   document.getElementById("occupationp2").textContent = Occupp2;
 }
 
+//from here: code AHF:
 
-
-// if (
-//   document.fullscreenElement || /* Standard syntax */
-//   document.webkitFullscreenElement || /* Safari and Opera syntax */
-//   document.msFullscreenElement /* IE11 syntax */
-// ) {
-//   var fullscreen = 1;
-// } else {
-//   var fullscreen = 0;
-// }
-
-// console.log(fullscreen);
-
-
-//!from here: code alejandro:
 // ----------------------------------------------------- //
 //  Function:       1. Creates inputs necessary for Visual Trace
 // 

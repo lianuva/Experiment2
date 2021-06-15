@@ -100,17 +100,14 @@ mark.green {
   let treatmentnumber = getRandomInt(1,4);
   console.log(treatmentnumber);
 
+  //determine treatment for tasks
   if (treatmentnumber == 1) {
-    // document.getElementById("treatmenttext").innerHTML = "The chance that the math task is chosen is 25%, the chance that the verbal task is chosen is 75%.";
     document.getElementById("treatment").value = 1;
   } else if (treatmentnumber == 2) {
-    // document.getElementById("treatmenttext").innerHTML = "The chance that the math task is chosen is 75%, the chance that the verbal task is chosen is 25%.";
     document.getElementById("treatment").value = 2;
   } else if (treatmentnumber == 3) {
-    // document.getElementById("treatmenttext").innerHTML = "The chance that the math task is chosen is 50%, the chance that the verbal task is chosen is 50%.";
     document.getElementById("treatment").value = 3;
   } else {
-    // document.getElementById("treatmenttext").innerHTML = "The chance that the math task is chosen is 50%, the chance that the verbal task is chosen is 50%.";
     document.getElementById("treatment").value = 3;
   }
 

@@ -18,8 +18,6 @@ let category        = js_vars.category;
 
 //save vars
 document.getElementById("rownr").value        = rownr + 2;
-console.log(rownr + 2);
-
 document.getElementById("chosen").value       = 0;
 document.getElementById("category").value     = category;
 
@@ -215,21 +213,9 @@ if (randomvar == 1) {
 }
 
 
-
-// if (
-//   document.fullscreenElement || /* Standard syntax */
-//   document.webkitFullscreenElement || /* Safari and Opera syntax */
-//   document.msFullscreenElement /* IE11 syntax */
-// ) {
-//   var fullscreen = 1;
-// } else {
-//   var fullscreen = 0;
-// }
-
-// console.log(fullscreen);
+//from here: code AHF:
 
 
-//!from here: code alejandro:
 // ----------------------------------------------------- //
 //  Function:       1. Creates inputs necessary for Visual Trace
 // 

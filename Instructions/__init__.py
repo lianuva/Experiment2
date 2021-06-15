@@ -5,7 +5,7 @@ Instructions
 """
 
 class Constants(BaseConstants):
-    name_in_url = 'instructions'
+    name_in_url = 'Instructions'
     players_per_group = None
     num_rounds = 1
 

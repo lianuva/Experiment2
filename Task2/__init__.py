@@ -5,7 +5,7 @@ import numpy as np
 import random
 
 doc = """
-Main task where participants has to decide between two subjects
+Main task where participant has to decide between two subjects
 """
 
 
@@ -13,15 +13,14 @@ class Constants(BaseConstants):
     name_in_url = 'Task2'
     players_per_group = None
     num_rounds = 20
-    FM = pd.read_csv("_static/Task/FM.csv") #10 trials 8
-    MF = pd.read_csv("_static/Task/MF.csv") #10 trials 8
-    FF = pd.read_csv("_static/Task/FF.csv") #5 trials 1
-    MM = pd.read_csv("_static/Task/MM.csv") #5 trials 1
-    M  = pd.read_csv("_static/Task/2males.csv") #5 trials 1 
-    F  = pd.read_csv("_static/Task/2females.csv") #5 trials 1
+    FM = pd.read_csv("_static/Task/FM.csv") # 8 trials per round
+    MF = pd.read_csv("_static/Task/MF.csv") # 8 trials per round
+    FF = pd.read_csv("_static/Task/FF.csv") # 1 trial per round
+    MM = pd.read_csv("_static/Task/MM.csv") # 1 trial per round
+    M  = pd.read_csv("_static/Task/2males.csv") # 1 trial per round
+    F  = pd.read_csv("_static/Task/2females.csv") # 1 trial per round
     bRequireFS          = True  
     bCheckFocus         = True   
-
 
 class Subsession(BaseSubsession):
     pass
@@ -89,7 +88,6 @@ class Task2(Page):
                 data = json.dumps(x)
                 player.category = nrcategory[player.round_number-1]
                 player.rownr = (rownrstring[player.round_number-1] +2)
-                # player.rownr = player.rownr +2
             elif nrcategory[player.round_number-1] == 'MF':
                 x = {
                     "Genderp1"   : Constants.MF["female_gender"].tolist(),
@@ -106,7 +104,6 @@ class Task2(Page):
                 data = json.dumps(x)
                 player.category = nrcategory[player.round_number-1]
                 player.rownr = (rownrstring[player.round_number-1] +2)
-                # player.rownr = player.rownr +2
             elif nrcategory[player.round_number-1] == 'FF':   
                 x = {
                     "Genderp1"   : Constants.FF["female_gender"].tolist(),
@@ -123,7 +120,6 @@ class Task2(Page):
                 data = json.dumps(x)
                 player.category = nrcategory[player.round_number-1]
                 player.rownr = (rownrstring[player.round_number-1] +2)
-                # player.rownr = player.rownr +2
             elif nrcategory[player.round_number-1] == 'MM':   
                 x = {
                     "Genderp1"   : Constants.MM["female_gender"].tolist(),
@@ -140,7 +136,6 @@ class Task2(Page):
                 data = json.dumps(x)
                 player.category = nrcategory[player.round_number-1]
                 player.rownr = (rownrstring[player.round_number-1] +2)
-                # player.rownr = player.rownr +2
             elif nrcategory[player.round_number-1] == 'M':   
                 x = {
                     "Genderp1"   : Constants.M["female_gender"].tolist(),
@@ -157,7 +152,6 @@ class Task2(Page):
                 data = json.dumps(x)
                 player.category = nrcategory[player.round_number-1]
                 player.rownr = (rownrstring[player.round_number-1] +2)
-                # player.rownr = player.rownr +2
             elif nrcategory[player.round_number-1] == 'F':   
                 x = {
                     "Genderp1"   : Constants.F["female_gender"].tolist(),
@@ -174,7 +168,6 @@ class Task2(Page):
                 data = json.dumps(x)
                 player.category = nrcategory[player.round_number-1]
                 player.rownr = (rownrstring[player.round_number-1] +2)
-
             return {
                 'data'          : data,
                 'rownr'         : player.rownr,
