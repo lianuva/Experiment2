@@ -22,7 +22,7 @@ document.getElementById("chosen").value       = 0;
 document.getElementById("category").value     = category;
 
 //display round number to html
-document.getElementById("text2").innerHTML    = round_number;
+document.getElementById("text2").innerHTML    = (round_number + 20);
 
 // Create hidden input (Pressed Buttons)
 let sButtonClick        = document.createElement("input");
