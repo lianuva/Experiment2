@@ -27,6 +27,7 @@ nrcategory = np.array(['FM','FM','FM','FM','FM','FM','FM','FM','MF','MF','MF','M
 nrcategorystring = random.shuffle(nrcategory)
 rownrstring = [random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326)]
 
+
 class Subsession(BaseSubsession):
     pass
 
