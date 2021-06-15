@@ -12,17 +12,24 @@ var diff            = 0;
 // Other variables
 let chosen          = 0;
 let data            = js_vars.data;
-let length          = js_vars.length;
+//! let length          = js_vars.length;
 let category        = js_vars.category;
 let round_number    = js_vars.round_number;
-//! let randomvar       = js_vars.randomvar;
-//! console.log(randomvar);
-// let rownr           = js_vars.rownr;
-document.getElementById("chosen").value = 0;
-// document.getElementById("rownr").value = rownr;
-document.getElementById("category").value = category;
+let rownr           = js_vars.rownr;
+//! let rownrstring     = js_vars.rownrstring;
+
+console.log(rownr)
+
+//save vars
+document.getElementById("rownr").value        = rownr + 2;
+console.log(rownr + 2);
+//! document.getElementById("rownrstring").value  = rownrstring;
+//! console.log(document.getElementById("rownrstring").value);
+document.getElementById("chosen").value       = 0;
+document.getElementById("category").value     = category;
+
 //display round number to html
-document.getElementById("text2").innerHTML = round_number;
+document.getElementById("text2").innerHTML    = round_number;
 
 // Create hidden input (Pressed Buttons)
 let sButtonClick        = document.createElement("input");
@@ -48,19 +55,22 @@ GameBody.className  = 'game-body';
 
 // ----------------------------------------------------- //
 
+//get buttons
 let clickparticipant1 = document.getElementById("b7.2");
 let clickparticipant2 = document.getElementById("b7.3");
 
+//add eventlistener to buttons
 clickparticipant1.addEventListener("click", function buttonfunction(){
   clickparticipant1.style.background='rgb(200, 200, 200)';
   document.getElementById("chosen").value = 1;
-  EndButton.click(); 
+  EndButton.click();   
 });
 
 clickparticipant2.addEventListener("click", function buttonfunction(){
   clickparticipant2.style.background='rgb(200, 200, 200)';
   document.getElementById("chosen").value = 2;
   EndButton.click(); 
+
 });
 
 document.addEventListener("DOMContentLoaded", function(debug=true) {
@@ -73,33 +83,11 @@ document.addEventListener("DOMContentLoaded", function(debug=true) {
 //repeat treatment for participants
 treatment = document.getElementById("treatment").value;
 language = document.getElementById("language").value;
-if (treatment == 1 & language == "English") {
-  document.getElementById("treatmenttext").innerHTML = "Remember: The chance that the math task is chosen is 25%, the chance that the verbal task is chosen is 75%";
-} else if (treatment == 2 & language == "English") {
-  document.getElementById("treatmenttext").innerHTML = "Remember: The chance that the math task is chosen is 75%, the chance that the verbal task is chosen is 25%";
-} else if (treatment == 3 & language == "English") {
+if (language == "English") {
   document.getElementById("treatmenttext").innerHTML = "Remember: The chance that the math task is chosen is 50%, the chance that the verbal task is chosen is 50%";
-} else if (treatment == 1 & language == "Dutch") {
-  document.getElementById("treatmenttext").innerHTML = "Onthoud: De kans dat de math task wordt gekozen is 25%, de kans dat de verbal task wordt gekozen is 75%.";
-} else if (treatment == 2 & language == "Dutch") {
-  document.getElementById("treatmenttext").innerHTML = "Onthoud: De kans dat de math task wordt gekozen is 75%, de kans dat de verbal task wordt gekozen is 25%.";
-} else if (treatment == 3 & language == "Dutch") {
+} else if (language == "Dutch") {
   document.getElementById("treatmenttext").innerHTML = "Onthoud: De kans dat de math task wordt gekozen is 50%, de kans dat de verbal task wordt gekozen is 50%.";
-} else {
-  document.getElementById("treatmenttext").innerHTML = "Remember: The chance that the math task is chosen is 50%, the chance that the verbal task is chosen is 50%";
-}
-
-//function get random rownumber for string
-function getRandomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
-}
-
-//get random rownumber for string
-let rownr = getRandomInt(1, length);
-document.getElementById("rownr").value = rownr +2;
-console.log(rownr +2);
+} 
 
 // get values from csv string
 Genderp1    = data.split("[")[1].split(",")[rownr];
@@ -175,9 +163,15 @@ Matrixp2 = ((Matrixp2 / 12) * 10).toFixed(1);
 Verbalp1 = ((Verbalp1 / 75) * 10).toFixed(1);
 Verbalp2 = ((Verbalp2 / 75) * 10).toFixed(1);
 
+//function get random number
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+}
+
 randomvar = getRandomInt (1,3); //random number between 1,2
 document.getElementById("randomvar").value = randomvar;
-console.log(document.getElementById("randomvar").value);
 
 //display veriables to buttons
 if (randomvar == 1) {

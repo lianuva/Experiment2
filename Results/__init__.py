@@ -83,22 +83,11 @@ class Player(BasePlayer):
         label="How would you rank your own English language skills?",
         )  
     email       = models.StringField(label="Please enter your e-mail adress if you want to be in the random selection to be paid according to your outcomes:", blank=True)
-    mobile      = models.IntegerField(
-        label="What device did you use to participate in this study?",
-        choices=[
-        [1, 'Laptop'],
-        [2, 'Computer'],
-        [3, 'Mobile'],
-        [4, 'Tablet'],
-        [5, 'Other'],
-        ],
-        blank=True,
-        )
 
 # PAGES
 class Demographics(Page):
     form_model = 'player'
-    form_fields = ['age', 'gender', 'occupation', 'nationality', 'education', 'firstlanguage', 'english', 'mobile']
+    form_fields = ['age', 'gender', 'occupation', 'nationality', 'education', 'firstlanguage', 'english']
 
 class Results(Page):
     form_model = 'player'

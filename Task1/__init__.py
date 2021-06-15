@@ -22,12 +22,9 @@ class Constants(BaseConstants):
     bRequireFS          = True  
     bCheckFocus         = True   
 
-# nrcategory = np.random.randint(1, 9,(41,1)) #40 random number between 1-8
-# rng = np.random.default_rng()
-nrcategory = np.array([1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,4,5,6]) #one more 1, because round_number =0 does not exist
+nrcategory = np.array(['FM','FM','FM','FM','FM','FM','FM','FM','MF','MF','MF','MF','MF','MF','MF','MF','FF','MM','M','F']) 
 nrcategorystring = random.shuffle(nrcategory)
-
-#! here also rownr
+rownrstring = [random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326), random.randint(1,326)]
 
 class Subsession(BaseSubsession):
     pass
@@ -47,7 +44,7 @@ class Player(BasePlayer):
     iFullscreenChange   = models.IntegerField(blank=True) #tbv FriendlyChecks
 
 # PAGES
-class Task(Page):
+class Task1(Page):
     form_model = 'player'
     form_fields = [
         'sButtonClick', 
@@ -63,7 +60,11 @@ class Task(Page):
 
     @staticmethod
     def js_vars(player: Player):
-            if nrcategory[player.round_number-1] == 1:
+            # nrcategory = Constants.nrcategory
+            # # rownr = np.array2string(Constants.rownrstring)
+            # # rownr = Constants.rownrstring[player.round_number]
+            # rownr = Constants.rownrstring
+            if nrcategory[player.round_number-1] == 'FM':
                 x = {
                     "Genderp1"   : Constants.FM["female_gender"].tolist(),
                     "Matrixp1"   : Constants.FM["female_matrix1"].tolist(),
@@ -77,9 +78,10 @@ class Task(Page):
                     "occupp2"    : Constants.FM["male_occup"].tolist(), 
                 }
                 data = json.dumps(x)
-                length = len(Constants.FM["female_gender"])
-                player.category = 'FM'
-            elif nrcategory[player.round_number-1] == 2:
+                player.category = nrcategory[player.round_number-1]
+                player.rownr = (rownrstring[player.round_number-1] +2)
+                # player.rownr = player.rownr +2
+            elif nrcategory[player.round_number-1] == 'MF':
                 x = {
                     "Genderp1"   : Constants.MF["female_gender"].tolist(),
                     "Matrixp1"   : Constants.MF["female_matrix1"].tolist(),
@@ -93,9 +95,10 @@ class Task(Page):
                     "occupp2"    : Constants.MF["male_occup"].tolist(), 
                 }
                 data = json.dumps(x)
-                length = len(Constants.FM["female_gender"])
-                player.category = 'MF'
-            elif nrcategory[player.round_number-1] == 3:   
+                player.category = nrcategory[player.round_number-1]
+                player.rownr = (rownrstring[player.round_number-1] +2)
+                # player.rownr = player.rownr +2
+            elif nrcategory[player.round_number-1] == 'FF':   
                 x = {
                     "Genderp1"   : Constants.FF["female_gender"].tolist(),
                     "Matrixp1"   : Constants.FF["female_matrix1"].tolist(),
@@ -109,9 +112,10 @@ class Task(Page):
                     "occupp2"    : Constants.FF["male_occup"].tolist(), 
                 }
                 data = json.dumps(x)
-                length = len(Constants.FM["female_gender"])
-                player.category = 'FF'
-            elif nrcategory[player.round_number-1] == 4:   
+                player.category = nrcategory[player.round_number-1]
+                player.rownr = (rownrstring[player.round_number-1] +2)
+                # player.rownr = player.rownr +2
+            elif nrcategory[player.round_number-1] == 'MM':   
                 x = {
                     "Genderp1"   : Constants.MM["female_gender"].tolist(),
                     "Matrixp1"   : Constants.MM["female_matrix1"].tolist(),
@@ -125,9 +129,10 @@ class Task(Page):
                     "occupp2"    : Constants.MM["male_occup"].tolist(), 
                 }
                 data = json.dumps(x)
-                length = len(Constants.FM["female_gender"])
-                player.category = 'MM'
-            elif nrcategory[player.round_number-1] == 5:   
+                player.category = nrcategory[player.round_number-1]
+                player.rownr = (rownrstring[player.round_number-1] +2)
+                # player.rownr = player.rownr +2
+            elif nrcategory[player.round_number-1] == 'M':   
                 x = {
                     "Genderp1"   : Constants.M["female_gender"].tolist(),
                     "Matrixp1"   : Constants.M["female_matrix1"].tolist(),
@@ -141,9 +146,10 @@ class Task(Page):
                     "occupp2"    : Constants.M["male_occup"].tolist(), 
                 }
                 data = json.dumps(x)
-                length = len(Constants.FM["female_gender"])
-                player.category = 'M'
-            elif nrcategory[player.round_number-1] == 6:   
+                player.category = nrcategory[player.round_number-1]
+                player.rownr = (rownrstring[player.round_number-1] +2)
+                # player.rownr = player.rownr +2
+            elif nrcategory[player.round_number-1] == 'F':   
                 x = {
                     "Genderp1"   : Constants.F["female_gender"].tolist(),
                     "Matrixp1"   : Constants.F["female_matrix1"].tolist(),
@@ -157,12 +163,12 @@ class Task(Page):
                     "occupp2"    : Constants.F["male_occup"].tolist(), 
                 }
                 data = json.dumps(x)
-                length = len(Constants.FM["female_gender"])
-                player.category = 'F'
+                player.category = nrcategory[player.round_number-1]
+                player.rownr = (rownrstring[player.round_number-1] +2)
 
             return {
                 'data'          : data,
-                'length'        : length,
+                'rownr'         : player.rownr,
                 'category'      : player.category,
                 'round_number'  : player.round_number,
                 'bRequireFS'    : Constants.bRequireFS,
@@ -173,5 +179,15 @@ class Task(Page):
     def before_next_page(player, timeout_happened):  
         participant = player.participant
         participant.category = player.category
+        participant.rownrstring = rownrstring
+        participant.categorystring = nrcategory
 
-page_sequence = [Task]
+    # @staticmethod
+    # def vars_for_template(player: Player):
+    #     participant = player.participant
+    #     return {
+    #         'rownrstring' : participant.rownrstring,
+    #         'categorystring' : participant.categorystring
+    #     }
+
+page_sequence = [Task1]

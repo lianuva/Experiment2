@@ -39,7 +39,7 @@ mark.green {
   Op de volgende pagina zie je de scores van 2 participanten op 2 testen, een wiskundige (vanaf hier 'math task' genoemd) en een verbale test (vanaf hier 'verbal task' genoemd). 
   Deze testen zijn twee keer gespeeld door meerdere participanten. Maar je kan alleen de scores van de eerste ronde zien. 
   Vervolgens wordt jij gevraagd om te kiezen welke participant het volgens jou in de tweede ronde beter gaat doen. 
-  Na het experiment, zal één van de twee testen willekeurig worden gekozen. <p type = "text" id ="treatmenttext"></p>
+  Na het experiment, zal één van de twee testen willekeurig worden gekozen. <p type = "text">De kans dat de math task wordt gekozen is 50%, de kans dat de verbal task wordt gekozen is 50%.</p>
 
   Als de participant die jij hebt gekozen beter heeft gespeeld op de willekeurig gekozen test in de tweede ronde, ontvang je €0.50 voor jouw mogelijk te winnen bedrag.
   Je ziet ook wat eigenschappen van de participanten (age = leeftijd, gender = geslacht, occupation = beroep).
@@ -103,16 +103,16 @@ mark.green {
   console.log(treatmentnumber);
 
   if (treatmentnumber == 1) {
-    document.getElementById("treatmenttext").innerHTML = "De kans dat de math task wordt gekozen is 25%, de kans dat de verbal task wordt gekozen is 75%.";
+    // document.getElementById("treatmenttext").innerHTML = "De kans dat de math task wordt gekozen is 25%, de kans dat de verbal task wordt gekozen is 75%.";
     document.getElementById("treatment").value = 1;
   } else if (treatmentnumber == 2) {
-    document.getElementById("treatmenttext").innerHTML = "De kans dat de math task wordt gekozen is 75%, de kans dat de verbal task wordt gekozen is 25%.";
+    // document.getElementById("treatmenttext").innerHTML = "De kans dat de math task wordt gekozen is 75%, de kans dat de verbal task wordt gekozen is 25%.";
     document.getElementById("treatment").value = 2;
   } else if (treatmentnumber == 3) {
-    document.getElementById("treatmenttext").innerHTML = "De kans dat de math task wordt gekozen is 50%, de kans dat de verbal task wordt gekozen is 50%.";
+    // document.getElementById("treatmenttext").innerHTML = "De kans dat de math task wordt gekozen is 50%, de kans dat de verbal task wordt gekozen is 50%.";
     document.getElementById("treatment").value = 3;
   } else {
-    document.getElementById("treatmenttext").innerHTML = "De kans dat de math task wordt gekozen is 50%, de kans dat de verbal task wordt gekozen is 50%.";
+    // document.getElementById("treatmenttext").innerHTML = "De kans dat de math task wordt gekozen is 50%, de kans dat de verbal task wordt gekozen is 50%.";
     document.getElementById("treatment").value = 3;
   }
 

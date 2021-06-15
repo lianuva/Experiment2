@@ -1,0 +1,45 @@
+{{ block content }}
+
+
+{{ block title }}
+Instructions
+{{ endblock }}
+
+<p type = "text" id = "text1"></p>
+
+<p type = "text" id ="treatmenttext"></p>
+
+<input type = "hidden" id="treatment" value="{{player.participant.treatment}}">
+<input type = "hidden" id="language" value="{{player.participant.language}}">
+
+    {{ next_button }}
+
+{{ endblock }}
+
+<script>
+    //repeat treatment for participants
+    treatment = document.getElementById("treatment").value;
+    language = document.getElementById("language").value;
+    if (treatment == 1 & language == "English") {
+    document.getElementById("treatmenttext").innerHTML = "The chance that the math task is chosen is 25%, the chance that the verbal task is chosen is 75%.";
+    document.getElementById("text1").innerHTML= "In the second part of this task, the probability of tasks being randomly chosen changes. This is the new chance:";
+    } else if (treatment == 2 & language == "English") {
+    document.getElementById("treatmenttext").innerHTML = "The chance that the math task is chosen is 75%, the chance that the verbal task is chosen is 25%.";
+    document.getElementById("text1").innerHTML= "In the second part of this task, the probability of tasks being randomly chosen changes. This is the new chance:";
+    } else if (treatment == 3 & language == "English") {
+    document.getElementById("treatmenttext").innerHTML = "The chance that the math task is chosen is 50%, the chance that the verbal task is chosen is 50%.";
+    document.getElementById("text1").innerHTML= "In the second part of this task, the probability of tasks being randomly chosen changes. This is the new chance:";
+    } else if (treatment == 1 & language == "Dutch") {
+    document.getElementById("treatmenttext").innerHTML = "De kans dat de math task wordt gekozen is 25%, de kans dat de verbal task wordt gekozen is 75%.";
+    document.getElementById("text1").innerHTML= "In het tweede deel van dit experiment, verandert de kans dat de tasks worden gekozen, namelijk:";
+    } else if (treatment == 2 & language == "Dutch") {
+    document.getElementById("treatmenttext").innerHTML = "De kans dat de math task wordt gekozen is 75%, de kans dat de verbal task wordt gekozen is 25%.";
+    document.getElementById("text1").innerHTML= "In het tweede deel van dit experiment, verandert de kans dat de tasks worden gekozen, namelijk:";
+    } else if (treatment == 3 & language == "Dutch") {
+    document.getElementById("treatmenttext").innerHTML = "De kans dat de math task wordt gekozen is 50%, de kans dat de verbal task wordt gekozen is 50%.";
+    document.getElementById("text1").innerHTML= "In het tweede deel van dit experiment, verandert de kans dat de tasks worden gekozen, namelijk:";
+    } else {
+    document.getElementById("treatmenttext").innerHTML = "The chance that the math task is chosen is 50%, the chance that the verbal task is chosen is 50%.";
+    document.getElementById("text1").innerHTML= "In the second part of this task, the probability of tasks being randomly chosen changes. This is the new chance:";
+    }
+</script>

@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function(debug=true) {
             'input[name="controlquestion3"]:checked');   
             
         if(getSelectedValue3 != null) {   
-            if (getSelectedValue3.value == document.getElementById("treatment").value) {
+            if (getSelectedValue3.value == "3") {
                 document.getElementById("text3").innerHTML = "Correct";
             } else {
                 document.getElementById("text3").innerHTML = "Incorrect";
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function(debug=true) {
         }   
 
 
-        if (getSelectedValue.value == "Hover"& getSelectedValue2.value == "10" & getSelectedValue3.value == document.getElementById("treatment").value){
+        if (getSelectedValue.value == "Hover"& getSelectedValue2.value == "10" & getSelectedValue3.value == "3"){
             document.getElementById("text4").innerHTML = "Alle antwoorden zijn correct!  Vanaf hier zal het experiment weer in het engels zijn, maar er zal niet veel tekst meer volgen. Klik 'next' om door te beginnen met het experiment.";
             // participants are also noted that from here the experiment will continue in English
             EndButton.style.visibility  = 'visible';  
