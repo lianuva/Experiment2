@@ -16,9 +16,19 @@ let category        = js_vars.category;
 let round_number    = js_vars.round_number;
 let rownr           = js_vars.rownr;
 
-//save vars
+//save/predefine vars
 document.getElementById("rownr").value        = rownr + 2;
 document.getElementById("chosen").value       = 0;
+// document.getElementById("Matrixp1").value     = 0;
+// document.getElementById("Verbalp1").value     = 0;
+// document.getElementById("Agep1").value        = 0;
+// document.getElementById("Genderp1").value     = 0;
+// document.getElementById("Occupp1").value      = 0;
+// document.getElementById("Matrixp2").value     = 0;
+// document.getElementById("Verbalp2").value     = 0;
+// document.getElementById("Agep2").value        = 0;
+// document.getElementById("Genderp2").value     = 0;
+// document.getElementById("Occupp2").value      = 0;
 document.getElementById("category").value     = category;
 
 //display round number to html
@@ -151,8 +161,8 @@ if (Occupp2 == 1){
   Occupp2 = 'Unknown'
 }
 //normalize score
-Matrixp1 = ((Matrixp1 / 12) * 10).toFixed(1);
-Matrixp2 = ((Matrixp2 / 12) * 10).toFixed(1);
+Matrixp1 = ((Matrixp1 / 15) * 10).toFixed(1); //was eerst /12
+Matrixp2 = ((Matrixp2 / 15) * 10).toFixed(1);
 Verbalp1 = ((Verbalp1 / 75) * 10).toFixed(1);
 Verbalp2 = ((Verbalp2 / 75) * 10).toFixed(1);
 
@@ -166,7 +176,8 @@ function getRandomInt(min, max) {
 randomvar = getRandomInt (1,3); //random number between 1,2
 document.getElementById("randomvar").value = randomvar;
 
-//display veriables to buttons
+//display variables to buttons
+//1 is same order of colums as in csv, 2 is different way around
 if (randomvar == 1) {
   document.getElementById("mathp1").textContent = Matrixp1;
   document.getElementById("verbalp1").textContent = Verbalp1;
@@ -178,6 +189,16 @@ if (randomvar == 1) {
   document.getElementById("agep2").textContent = Agep2;
   document.getElementById("genderp2").textContent = Genderp2;
   document.getElementById("occupationp2").textContent = Occupp2;
+  document.getElementById("Matrixp1save").value = Matrixp1;
+  document.getElementById("Verbalp1save").value = Verbalp1;
+  document.getElementById("Agep1save").value = Agep1;
+  document.getElementById("Genderp1save").value = Genderp1;
+  document.getElementById("Occupp1save").value = Occupp1;
+  document.getElementById("Matrixp2save").value = Matrixp2;
+  document.getElementById("Verbalp2save").value = Verbalp2;
+  document.getElementById("Agep2save").value = Agep2;
+  document.getElementById("Genderp2save").value = Genderp2;
+  document.getElementById("Occupp2save").value = Occupp2;
 } else if (randomvar ==2) {
   document.getElementById("mathp1").textContent = Matrixp2;
   document.getElementById("verbalp1").textContent = Verbalp2;
@@ -189,18 +210,18 @@ if (randomvar == 1) {
   document.getElementById("agep2").textContent = Agep1;
   document.getElementById("genderp2").textContent = Genderp1;
   document.getElementById("occupationp2").textContent = Occupp1;
-} else {
-  document.getElementById("mathp1").textContent = Matrixp1;
-  document.getElementById("verbalp1").textContent = Verbalp1;
-  document.getElementById("agep1").textContent = Agep1;
-  document.getElementById("genderp1").textContent = Genderp1;
-  document.getElementById("occupationp1").textContent = Occupp1;
-  document.getElementById("mathp2").textContent = Matrixp2;
-  document.getElementById("verbalp2").textContent = Verbalp2;
-  document.getElementById("agep2").textContent = Agep2;
-  document.getElementById("genderp2").textContent = Genderp2;
-  document.getElementById("occupationp2").textContent = Occupp2;
+  document.getElementById("Matrixp1save").value = Matrixp2;
+  document.getElementById("Verbalp1save").value = Verbalp2;
+  document.getElementById("Agep1save").value = Agep2;
+  document.getElementById("Genderp1save").value = Genderp2;
+  document.getElementById("Occupp1save").value = Occupp2;
+  document.getElementById("Matrixp2save").value = Matrixp1;
+  document.getElementById("Verbalp2save").value = Verbalp1;
+  document.getElementById("Agep2save").value = Agep1;
+  document.getElementById("Genderp2save").value = Genderp1;
+  document.getElementById("Occupp2save").value = Occupp1;
 }
+
 
 //from here: code AHF:
 

@@ -23,7 +23,7 @@ ROOMS = [
 
 SESSION_CONFIG_DEFAULTS = dict(real_world_currency_per_point=1.00, participation_fee=0.00, doc="")
 
-PARTICIPANT_FIELDS = ['treatment', 'category', 'categorystring', 'rownrstring', 'language']
+PARTICIPANT_FIELDS = ['treatment', 'category', 'categorystring', 'rownrstring', 'language', 'data']
 
 # ISO-639 code
 # for example: de, fr, ja, ko, zh-hans
