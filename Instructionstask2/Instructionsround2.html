@@ -12,11 +12,13 @@ Instructions
 <input type = "hidden" id="treatment" value="{{player.participant.treatment}}">
 <input type = "hidden" id="language" value="{{player.participant.language}}">
 
-    {{ next_button }}
+{{next_button}}
 
-{{ endblock }}
+{{endblock}}
+
 
 <script>
+
     //repeat treatment for participants
     treatment = document.getElementById("treatment").value;
     language = document.getElementById("language").value;

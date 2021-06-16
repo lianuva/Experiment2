@@ -49,11 +49,6 @@ def get_string_rownrstring(player):
     return rownrstring
 
 # PAGES
-class Instructionsround2(Page):
-    @staticmethod
-    def is_displayed(player: Player):
-        return player.round_number == 1
-
 class Task2(Page):
     form_model = 'player'
     form_fields = [
@@ -177,4 +172,4 @@ class Task2(Page):
                 'bCheckFocus'   : Constants.bCheckFocus,
             }
 
-page_sequence = [Instructionsround2, Task2]
+page_sequence = [Task2]

@@ -1,0 +1,114 @@
+
+{{ block content }}
+
+<style>
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+</style>
+
+<input type = "hidden" id="treatment" value="{{player.participant.treatment}}">
+<p>
+    Before continuing to the next page, please answer the questions correctly:
+    <br><br>
+
+    What was the chance that the math/verbal task was chosen in the first round?
+    <div>
+        <input type="radio" id="Click" name="controlquestion1" value="1">
+        <label for="Click">The chance that the math task was chosen is 25%, the chance that the verbal task was chosen is 75%</label>
+    </div>
+    <div>
+        <input type="radio" id="Hover" name="controlquestion1" value="2">
+        <label for="Hover">The chance that the math task was chosen is 75%, the chance that the verbal task was chosen is 25%</label>
+    </div>
+    <div>
+        <input type="radio" id="Look" name="controlquestion1" value="3">
+        <label for="Look">The chance that the math task was chosen is 50%, the chance that the verbal task was chosen is 50%</label>
+        </div>
+    <div>
+    <p id="text2"></p>
+
+    What is the chance that the math/verbal task is chosen in the next round (you are about to do)?
+    <div>
+        <input type="radio" id="Click" name="controlquestion2" value="1">
+        <label for="Click">The chance that the math task is chosen is 25%, the chance that the verbal task is chosen is 75%</label>
+    </div>
+    <div>
+        <input type="radio" id="Hover" name="controlquestion2" value="2">
+        <label for="Hover">The chance that the math task is chosen is 75%, the chance that the verbal task is chosen is 25%</label>
+    </div>
+    <div>
+        <input type="radio" id="Look" name="controlquestion2" value="3">
+        <label for="Look">The chance that the math task is chosen is 50%, the chance that the verbal task is chosen is 50%</label>
+        </div>
+    <div>
+    <p id="text3"></p>
+
+    <button type="button" id="submit"> Submit </button>   
+    <br><br>
+    <p id="text4"></p>
+
+</p>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(debug=true) {
+        //define variables
+        let body = document.getElementsByClassName("otree-body")[0];
+        //Hidden Next Button
+        let EndButton               = document.getElementsByClassName('otree-btn-next btn btn-primary')[0];
+        EndButton.style.visibility  = 'hidden'; 
+        
+        button = document.getElementById("submit");
+
+        button.addEventListener("click", function checkfunction() {
+            var getSelectedValue1 = document.querySelector(   
+                'input[name="controlquestion1"]:checked');   
+                
+            if(getSelectedValue1 != null) {   
+                if (getSelectedValue1.value == "3") {
+                    document.getElementById("text2").innerHTML = "Correct";
+                } else {
+                    document.getElementById("text2").innerHTML = "Incorrect";
+                }  
+            }   
+            else {   
+                document.getElementById("text2").innerHTML   
+                    = "You have not selected any option";   
+            }     
+
+            var getSelectedValue2 = document.querySelector(   
+                'input[name="controlquestion2"]:checked');   
+                
+            if(getSelectedValue2 != null) {   
+                if (getSelectedValue2.value == document.getElementById("treatment").value) {
+                    document.getElementById("text3").innerHTML = "Correct";
+                } else {
+                    document.getElementById("text3").innerHTML = "Incorrect";
+                }  
+            }   
+            else {   
+                document.getElementById("text3").innerHTML   
+                    = "You have not selected any option";   
+            }   
+
+
+            if (getSelectedValue1.value == "3" & getSelectedValue2.value == document.getElementById("treatment").value){
+                document.getElementById("text4").innerHTML = "All are correct! Please click next to start the task:";
+                EndButton.style.visibility  = 'visible';  
+            }            
+        });
+
+    });
+   
+</script>
+    {{ next_button }}
+{{ endblock }}

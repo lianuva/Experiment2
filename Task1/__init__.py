@@ -37,12 +37,12 @@ class Player(BasePlayer):
     randomvar           = models.IntegerField(blank=True) #if 1, normal order, if 2, reverse order of csv
     Matrixp1save        = models.StringField(blank= True)
     Verbalp1save        = models.StringField(blank= True)
-    Agep1save           = models.IntegerField(blank= True)
+    Agep1save           = models.StringField(blank= True)
     Genderp1save        = models.StringField(blank= True)
     Occupp1save         = models.StringField(blank= True)
     Matrixp2save        = models.StringField(blank= True)
     Verbalp2save        = models.StringField(blank= True)
-    Agep2save           = models.IntegerField(blank= True)
+    Agep2save           = models.StringField(blank= True)
     Genderp2save        = models.StringField(blank= True)
     Occupp2save         = models.StringField(blank= True)
     iFocusLost          = models.IntegerField(blank=True) #tbv FriendlyChecks
