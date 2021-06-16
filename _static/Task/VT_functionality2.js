@@ -161,8 +161,8 @@ if (Occupp2 == 1){
   Occupp2 = 'Unknown'
 }
 //normalize score
-Matrixp1 = ((Matrixp1 / 12) * 10).toFixed(1);
-Matrixp2 = ((Matrixp2 / 12) * 10).toFixed(1);
+Matrixp1 = ((Matrixp1 / 15) * 10).toFixed(1); //was eerst 12
+Matrixp2 = ((Matrixp2 / 15) * 10).toFixed(1);
 Verbalp1 = ((Verbalp1 / 75) * 10).toFixed(1);
 Verbalp2 = ((Verbalp2 / 75) * 10).toFixed(1);
 
