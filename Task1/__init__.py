@@ -162,9 +162,23 @@ def treatment(player):
         # participant.data    = json.dumps(x)
         player.category     = nrcategory[player.round_number-1]
         player.rownr        = (rownrstring[player.round_number-1] +2)
+    else: #to prevent NaN
+        x = {
+            "Genderp1"   : Constants.MM["female_gender"].tolist(),
+            "Matrixp1"   : Constants.MM["female_matrix1"].tolist(),
+            "Verbalp1"   : Constants.MM["female_verbal1"].tolist(),
+            "Agep1"      : Constants.MM["female_age"].tolist(),
+            "occupp1"    : Constants.MM["female_occup"].tolist(),
+            "Genderp2"   : Constants.MM["male_gender"].tolist(),
+            "Matrixp2"   : Constants.MM["male_matrix1"].tolist(),
+            "Verbalp2"   : Constants.MM["male_verbal1"].tolist(),
+            "Agep2"      : Constants.MM["male_age"].tolist(),
+            "occupp2"    : Constants.MM["male_occup"].tolist(), 
+        }
+        # participant.data    = json.dumps(x)
+        player.category     = 'MM-error'
+        player.rownr        = 100
     return x
-
-
 
 # PAGES
 class Task1(Page):
