@@ -5,7 +5,7 @@ import numpy as np
 import random
 
 doc = """
-Main task where participant has to decide between two subjects
+Instructionsround2
 """
 
 
