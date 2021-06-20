@@ -175,7 +175,6 @@ def treatment(player):
             "Agep2"      : Constants.MM["male_age"].tolist(),
             "occupp2"    : Constants.MM["male_occup"].tolist(), 
         }
-        # participant.data    = json.dumps(x)
         player.category     = 'MM-error'
         player.rownr        = 100
     return x
@@ -224,5 +223,13 @@ class Task1(Page):
         participant.category = player.category
         # participant.rownrstring = rownrstring
         # participant.categorystring = nrcategory
+
+    @staticmethod
+    def error_message(player, values):
+        if len(values['sButtonClick']) == 0 :
+            if player.participant.language == 'English':
+                return 'Please hover over at least 1 button to reveal information'
+            elif player.participant.language == 'Dutch':
+                return 'Beweeg je muis over een vakje om de informatie te onthullen'
 
 page_sequence = [Task1]

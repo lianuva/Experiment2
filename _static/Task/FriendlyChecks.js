@@ -116,7 +116,7 @@ function CreateFullScreenPopUp() {
   PopUpText2.className             = 'fs-popup-text';
   switch (getOS()) {
     case 'Mac OS' : 
-      PopUpText2.innerHTML            = 'Press cmd⌘+crtl+F (also hide toolbar)'; 
+      PopUpText2.innerHTML            = 'Press cmd⌘+crtl+F (also hide toolbar Press cmd⌘+⇧+F)'; 
       break;
     case 'Windows' :
       PopUpText2.innerHTML             = 'Press F11';
