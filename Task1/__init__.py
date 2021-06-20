@@ -53,10 +53,10 @@ def creating_session(subsession):
     if subsession.round_number == 1:
         for player in subsession.get_players():
             participant = player.participant
-            #define category and rownr string. Max rownumber is 326 because thats the min length of the csv's
+            #define category and rownr string. Max rownumber is 320 because thats the min length of the csv's
             nrcategory          = np.array(['FM','FM','FM','FM','FM','FM','FM','FM','MF','MF','MF','MF','MF','MF','MF','MF','FF','MM','M','F']) 
             nrcategorystring    = np.random.shuffle(nrcategory)
-            rownrstring         = [np.random.randint(1,326), np.random.randint(1,326), np.random.randint(1,326), np.random.randint(1,326), np.random.randint(1,326), np.random.randint(1,326), np.random.randint(1,326), np.random.randint(1,326), np.random.randint(1,326), np.random.randint(1,326), np.random.randint(1,326), np.random.randint(1,326), np.random.randint(1,326), np.random.randint(1,326), np.random.randint(1,326), np.random.randint(1,326), np.random.randint(1,326), np.random.randint(1,326), np.random.randint(1,326), np.random.randint(1,326)]
+            rownrstring         = [np.random.randint(1,320), np.random.randint(1,320), np.random.randint(1,320), np.random.randint(1,320), np.random.randint(1,320), np.random.randint(1,320), np.random.randint(1,320), np.random.randint(1,320), np.random.randint(1,320), np.random.randint(1,320), np.random.randint(1,320), np.random.randint(1,320), np.random.randint(1,320), np.random.randint(1,320), np.random.randint(1,320), np.random.randint(1,320), np.random.randint(1,320), np.random.randint(1,320), np.random.randint(1,320), np.random.randint(1,320)]
        
             participant.categorystring  = nrcategory
             participant.rownrstring     = rownrstring
