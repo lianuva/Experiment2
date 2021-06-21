@@ -171,5 +171,13 @@ class Task2(Page):
                 'bRequireFS'    : Constants.bRequireFS,
                 'bCheckFocus'   : Constants.bCheckFocus,
             }
+            
+    @staticmethod
+    def error_message(player, values):
+        if len(values['sButtonClick']) == 0 :
+            if player.participant.language == 'English':
+                return 'Please hover over at least 1 button to reveal information (scroll down if you want to read the instructions again)'
+            elif player.participant.language == 'Dutch':
+                return 'Beweeg je muis over een vakje om de informatie te onthullen (scroll naar beneden als je de instructies opnieuw wilt lezen)'
 
 page_sequence = [Task2]
