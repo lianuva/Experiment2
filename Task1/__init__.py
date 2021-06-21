@@ -3,10 +3,13 @@ import pandas as pd
 import json
 import numpy as np
 import random
+# import urllib.request
+# import subprocess
 
 doc = """
 Main task where participants has to decide between two subjects
 """
+
 
 
 class Constants(BaseConstants):
@@ -179,6 +182,31 @@ def treatment(player):
         player.rownr        = 100
     return x
 
+# pdf_path = "_static/Instructions/Instructions.pdf"
+# def download_file(download_url, filename):
+#     response = urllib.request.urlopen(download_url)    
+#     file = open(filename + ".pdf", 'wb')
+#     file.write(response.read())
+#     file.close()
+
+# download_file(pdf_path, "Instructions")
+
+# def main():
+#     download_file("_static/Instructions/Instructions.pdf")
+
+# def download_file(download_url):
+#     response = urllib.request.urlopen(download_url)
+#     file = open("document.pdf", 'wb')
+#     file.write(response.read())
+#     file.close()
+#     print("Completed")
+
+# print(main())
+
+
+# subprocess.Popen(["_static/Instructions/Instructions.pdf"],shell=True)
+
+
 # PAGES
 class Task1(Page):
     form_model = 'player'
@@ -228,8 +256,8 @@ class Task1(Page):
     def error_message(player, values):
         if len(values['sButtonClick']) == 0 :
             if player.participant.language == 'English':
-                return 'Please hover over at least 1 button to reveal information'
+                return 'Please hover over at least 1 button to reveal information (scroll down if you want to read the instructions again)'
             elif player.participant.language == 'Dutch':
-                return 'Beweeg je muis over een vakje om de informatie te onthullen'
+                return 'Beweeg je muis over een vakje om de informatie te onthullen (scroll naar beneden als je de instructies opnieuw wilt lezen)'
 
 page_sequence = [Task1]
